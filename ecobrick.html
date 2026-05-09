@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bojongsantos Project - Ecobrick</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'eco-dark': '#064e3b',
+                        'eco-primary': '#059669',
+                        'eco-accent': '#10b981',
+                        'eco-light': '#ecfdf5',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .hero-brick { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1591193022659-1200be9db201?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+    <!-- Top Navigation -->
+    <nav class="absolute top-0 w-full z-50 px-6 py-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="text-white font-bold text-xl tracking-tight">Bojongsantos Project</div>
+            <div class="hidden md:flex items-center space-x-8 text-white text-xs font-bold uppercase tracking-widest">
+                <a href="index.html" class="hover:text-eco-accent transition-colors">Beranda</a>
+                <a href="ecobrick.html" class="hover:text-eco-accent border-b-2 border-eco-accent pb-1 transition-colors">Ecobrick</a>
+                <a href="ecoenzym.html" class="hover:text-eco-accent transition-colors">Ecoenzym</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-brick h-[80vh] flex items-center justify-center text-center px-6 relative">
+        <div class="max-w-4xl pt-20 text-white">
+            <div class="inline-block bg-blue-400/20 backdrop-blur-md text-white text-xs font-bold px-6 py-2 rounded-full mb-8 border border-white/30 uppercase">
+                Solusi Sampah Anorganik
+            </div>
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight">
+                Eco-Brick: Solusi .....
+            </h1>
+            <p class="text-white/80 text-sm md:text-xl font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
+                Mengubah sampah dapur menjadi cairan yang bermanfaat untuk lingkungan.
+            </p>
+            <div class="flex items-center justify-center space-x-12">
+                <div class="text-center">
+                    <i class="fas fa-user text-3xl mb-4"></i>
+                    <h4 class="text-5xl font-black">50</h4>
+                    <p class="text-[10px] font-black uppercase tracking-widest text-white/50">Warga telah berpartisipasi</p>
+                </div>
+                <div class="text-center">
+                    <h4 class="text-5xl font-black">20 <span class="text-xl">kg</span></h4>
+                    <p class="text-[10px] font-black uppercase tracking-widest text-white/50">Sampah Plastik Dikelola</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Masalah Sampah Section -->
+    <section class="py-24 px-6 max-w-7xl mx-auto text-center">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Masalah Sampah Anorganik</h2>
+        <p class="text-gray-400 font-medium mb-16">Berbagai tantangan lingkungan yang dihadapi masyarakat Desa X</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+            <div class="bg-[#eef2f1] p-10 rounded-3xl">
+                <div class="w-12 h-12 bg-eco-dark rounded-xl mb-8"></div>
+                <h3 class="font-bold text-lg mb-2">Sungai Kotor</h3>
+                <p class="text-gray-500 text-sm">Limbah anorganik mencemari air sungai</p>
+            </div>
+            <div class="bg-[#eef2f1] p-10 rounded-3xl">
+                <div class="w-12 h-12 bg-eco-dark rounded-xl mb-8"></div>
+                <h3 class="font-bold text-lg mb-2">Sampah Menumpuk</h3>
+                <p class="text-gray-500 text-sm">Limbah plastik terus bertambah setiap hari</p>
+            </div>
+            <div class="bg-[#eef2f1] p-10 rounded-3xl">
+                <div class="w-12 h-12 bg-eco-dark rounded-xl mb-8"></div>
+                <h3 class="font-bold text-lg mb-2">Sulit Terurai</h3>
+                <p class="text-gray-500 text-sm">Sampah plastik butuh ratusan tahun untuk terurai</p>
+            </div>
+            <div class="bg-[#eef2f1] p-10 rounded-3xl">
+                <div class="w-12 h-12 bg-eco-dark rounded-xl mb-8"></div>
+                <h3 class="font-bold text-lg mb-2">Saluran Air Tersumbat</h3>
+                <p class="text-gray-500 text-sm">Dapat menyebabkan banjir</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apa itu Section -->
+    <section class="py-24 px-6 bg-eco-light/30">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6">Apa itu <span class="text-eco-primary">Eco-Brick</span>?</h2>
+            <p class="text-gray-500 text-base md:text-xl leading-relaxed mb-10">
+                <span class="font-black text-gray-900 italic">Ecobrick</span> adalah metode pengelolaan sampah plastik dengan cara memasukkan sampah plastik non-organik ke dalam botol plastik hingga padat dan keras, sehingga membentuk "bata" yang dapat dimanfaatkan kembali.
+            </p>
+            
+            <h3 class="text-2xl font-black mb-8">Mengapa eco-brick?</h3>
+            <ul class="space-y-4 mb-16">
+                <li class="flex items-center space-x-4 text-gray-900 font-bold"><i class="far fa-circle-check text-eco-primary text-xl"></i><span>Mudah dan Murah</span></li>
+                <li class="flex items-center space-x-4 text-gray-900 font-bold"><i class="far fa-circle-check text-eco-primary text-xl"></i><span>Tahan Lama</span></li>
+                <li class="flex items-center space-x-4 text-gray-900 font-bold"><i class="far fa-circle-check text-eco-primary text-xl"></i><span>Tahan Air</span></li>
+                <li class="flex items-center space-x-4 text-gray-900 font-bold"><i class="far fa-circle-check text-eco-primary text-xl"></i><span>Mengurangi Pencemaran Lingkungan</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Manfaat Section -->
+    <section class="py-24 px-6 text-center max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-6xl font-black mb-16">Manfaat</h2>
+        <div class="bg-gray-100 h-96 rounded-[3rem] flex items-center justify-center text-gray-400 font-bold">
+            [Visual Representasi Manfaat]
+        </div>
+    </section>
+
+    <!-- Alat Bahan Section -->
+    <section class="py-24 px-6 bg-white max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 text-center mb-4">Alat dan Bahan yang Digunakan</h2>
+        <p class="text-gray-400 font-medium text-center mb-16">Berbagai tantangan lingkungan yang dihadapi masyarakat Desa X</p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center">
+                <div class="bg-gray-100 rounded-3xl h-48 mb-6"></div>
+                <h4 class="font-black text-lg">Botol plastik bekas (PET)</h4>
+                <p class="text-xs text-gray-400">Gunakan botol bekas yang bersih, kering, dan ukurannya seragam</p>
+            </div>
+            <div class="text-center">
+                <div class="bg-gray-100 rounded-3xl h-48 mb-6"></div>
+                <h4 class="font-black text-lg">Sampah Plastik Kering</h4>
+                <p class="text-xs text-gray-400">Dapat berupa plastik kemasan makanan, deterjen, kantong kresek, plastik paket</p>
+            </div>
+            <div class="text-center">
+                <div class="bg-gray-100 rounded-3xl h-48 mb-6"></div>
+                <h4 class="font-black text-lg">Tongkat Pemadat</h4>
+                <p class="text-xs text-gray-400">Tongkat kayu atau bambu yang cukup panjang untuk memadatkan plastik ke dasar botol</p>
+            </div>
+            <div class="text-center">
+                <div class="bg-gray-100 rounded-3xl h-48 mb-6"></div>
+                <h4 class="font-black text-lg">Gunting</h4>
+                <p class="text-xs text-gray-400">Untuk memotong sampah plastik menjadi ukuran lebih kecil agar mudah dimasukkan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Langkah Section -->
+    <section class="py-24 px-6 max-w-5xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 text-center mb-4">Langkah Pembuatan Eco-Brick</h2>
+        <p class="text-gray-400 font-medium text-center mb-16">Berbagai tantangan lingkungan yang dihadapi masyarakat Desa X</p>
+        
+        <div class="space-y-4">
+            <div class="flex items-center space-x-6 p-8 bg-[#eefaf4] rounded-3xl">
+                <div class="w-16 h-16 bg-eco-dark text-white rounded-2xl flex items-center justify-center text-2xl font-black shrink-0">1</div>
+                <div>
+                    <h4 class="font-black text-xl mb-1">Kumpulkan, bersihkan, dan keringkan botol plastik dan sampah plastik</h4>
+                    <p class="text-gray-500 text-sm">Sampah botol plastik dibersihkan agar tidak menimbulkan jamur dan bakteri</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-6 p-8 bg-[#eefaf4] rounded-3xl">
+                <div class="w-16 h-16 bg-eco-dark text-white rounded-2xl flex items-center justify-center text-2xl font-black shrink-0">2</div>
+                <div>
+                    <h4 class="font-black text-xl mb-1">Mulai isi botol dengan sampah plastik</h4>
+                    <p class="text-gray-500 text-sm">Jika terdapat sampah plastik yang berukuran besar, maka gunakan gunting untuk memotong menjadi ukuran kecil-kecil.</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-6 p-8 bg-[#eefaf4] rounded-3xl">
+                <div class="w-16 h-16 bg-eco-dark text-white rounded-2xl flex items-center justify-center text-2xl font-black shrink-0">3</div>
+                <div>
+                    <h4 class="font-black text-xl mb-1">Dorong dan padatkan sampah ke dalam botol plastik</h4>
+                    <p class="text-gray-500 text-sm">Gunakan bantuan tongkat kecil untuk mendorongnya</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-6 p-8 bg-[#eefaf4] rounded-3xl">
+                <div class="w-16 h-16 bg-eco-dark text-white rounded-2xl flex items-center justify-center text-2xl font-black shrink-0">4</div>
+                <div>
+                    <h4 class="font-black text-xl mb-1">Pastikan botol tertutup dengan rapat untuk memastikan sampah dipadatkan dengan benar</h4>
+                    <p class="text-gray-500 text-sm">Gunakan bantuan tongkat kecil untuk mendorongnya</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-6 p-8 bg-[#eefaf4] rounded-3xl">
+                <div class="w-16 h-16 bg-eco-dark text-white rounded-2xl flex items-center justify-center text-2xl font-black shrink-0">5</div>
+                <div>
+                    <h4 class="font-black text-xl mb-1">Tekan atau peras botol dengan tangan Anda untuk memeriksa kepadatan ecobrick tersebut</h4>
+                    <p class="text-gray-500 text-sm">Ecobrick yang bagus dan padat tidak akan mengempis dan mengeluarkan suara</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-6 p-8 bg-[#eefaf4] rounded-3xl">
+                <div class="w-16 h-16 bg-eco-dark text-white rounded-2xl flex items-center justify-center text-2xl font-black shrink-0">6</div>
+                <div>
+                    <h4 class="font-black text-xl mb-1">Ecobrick sekarang siap untuk digunakan</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Visual Section -->
+    <section class="py-24 px-6 text-center max-w-7xl mx-auto">
+        <h2 class="text-2xl font-black mb-2">See the impact</h2>
+        <p class="text-xs text-gray-400 mb-12 uppercase tracking-widest font-bold">Geser slider pada layar untuk melihat perubahan pada sampah plastik di lingkunganmu</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-[600px]">
+            <div class="relative rounded-3xl overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                <div class="absolute top-6 left-6 bg-black/50 text-white text-[10px] font-black px-4 py-2 rounded-lg">Sebelum</div>
+            </div>
+            <div class="relative rounded-3xl overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1591193022659-1200be9db201?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                <div class="absolute top-6 right-6 bg-white/50 text-gray-900 text-[10px] font-black px-4 py-2 rounded-lg">Sesudah</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 px-6 text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-12">Jadilah bagian dari kami untuk lingkungan yang lebih bersih!</h2>
+        <button class="bg-eco-primary text-white px-12 py-5 rounded-3xl text-lg font-black hover:bg-eco-dark transition-all">Isi Form Kontribusi</button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-eco-dark border-t border-white/5 text-center text-white/40 text-[10px] font-bold uppercase tracking-widest">
+        @2026 Bojongsantos Project, All Rights Reserved<br>S1 Sistem Informasi Telkom University
+    </footer>
+
+</body>
+</html>
