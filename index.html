@@ -82,6 +82,12 @@
             background-position: center; 
             background-attachment: fixed;
         }
+
+        /* AI Chatbot Floating Button Animation */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.33); }
+            80%, 100% { opacity: 0; }
+        }
     </style>
 </head>
 <body class="text-gray-900 antialiased selection:bg-eco-accent selection:text-white">
@@ -475,6 +481,25 @@
             </p>
         </div>
     </footer>
+
+    <!-- Floating AI Chatbot UI Placeholder -->
+    <div class="fixed bottom-8 right-8 z-[100] group">
+        <!-- Pulse Effect -->
+        <div class="absolute inset-0 rounded-full bg-eco-accent opacity-75 animate-ping group-hover:animate-none"></div>
+        
+        <!-- Main Button -->
+        <button class="relative w-16 h-16 bg-eco-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:bg-eco-accent hover:scale-110 transition-all duration-300 focus:outline-none">
+            <i class="fas fa-robot text-2xl"></i>
+            
+            <!-- Tooltip -->
+            <div class="absolute right-full mr-4 bg-eco-dark text-white text-xs font-bold px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-xl">
+                Tanya AI Bojongsantos
+            </div>
+        </button>
+    </div>
+
+    <!-- Botpress Script Placeholder (Add your script here later) -->
+    <!-- <script src="https://cdn.botpress.cloud/..."></script> -->
 
     <script>
         // Navbar Scrolled Effect
