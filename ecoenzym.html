@@ -50,21 +50,21 @@
             background-attachment: fixed;
         }
 
-        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #10b981; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb { background: #10b981; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #059669; }
 
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         
-        .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-left { opacity: 0; transform: translateX(-30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal-left.active { opacity: 1; transform: translateX(0); }
         
-        .reveal-right { opacity: 0; transform: translateX(50px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-right { opacity: 0; transform: translateX(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal-right.active { opacity: 1; transform: translateX(0); }
         
-        .reveal-scale { opacity: 0; transform: scale(0.9); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-scale { opacity: 0; transform: scale(0.95); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal-scale.active { opacity: 1; transform: scale(1); }
 
         .delay-100 { transition-delay: 100ms; }
@@ -92,39 +92,50 @@
 </head>
 <body class="text-gray-900 antialiased selection:bg-eco-accent selection:text-white">
 
-    <div class="fixed top-[-10%] left-[-10%] w-96 h-96 bg-eco-accent/20 rounded-full mix-blend-multiply filter blur-[100px] opacity-50 animate-pulse-slow z-[-1] pointer-events-none"></div>
-    <div class="fixed bottom-[-10%] right-[-10%] w-96 h-96 bg-blue-400/20 rounded-full mix-blend-multiply filter blur-[100px] opacity-50 animate-pulse-slow delay-75 z-[-1] pointer-events-none"></div>
+    <div class="fixed top-[-5%] left-[-10%] w-72 h-72 md:w-96 md:h-96 bg-eco-accent/20 rounded-full mix-blend-multiply filter blur-[80px] md:blur-[100px] opacity-50 animate-pulse-slow z-[-1] pointer-events-none"></div>
+    <div class="fixed bottom-[-5%] right-[-10%] w-72 h-72 md:w-96 md:h-96 bg-blue-400/20 rounded-full mix-blend-multiply filter blur-[80px] md:blur-[100px] opacity-50 animate-pulse-slow delay-75 z-[-1] pointer-events-none"></div>
 
-    <nav class="absolute top-0 w-full z-50 px-6 py-6 md:px-12 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <div class="text-white font-extrabold text-2xl tracking-tighter flex items-center gap-2">
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12 md:py-6" id="navbar">
+        <div class="max-w-7xl mx-auto flex items-center justify-between relative">
+            <div class="text-white font-extrabold text-xl md:text-2xl tracking-tighter flex items-center gap-2">
                 <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-eco-primary to-eco-lime flex items-center justify-center">
                     <i class="fas fa-leaf text-eco-dark text-sm"></i>
                 </div>
                 Bojongsantos
             </div>
+            
             <div class="hidden md:flex items-center space-x-10 text-white text-xs font-bold uppercase tracking-[0.2em]">
                 <a href="index.html" class="hover:text-eco-lime transition-colors">Beranda</a>
                 <a href="ecobrick.html" class="hover:text-eco-lime transition-colors">Ecobrick</a>
                 <a href="ecoenzym.html" class="text-eco-lime relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-eco-lime">Ecoenzym</a>
             </div>
+
+            <button id="mobileMenuBtn" class="md:hidden text-white text-2xl focus:outline-none p-2">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-eco-dark/95 backdrop-blur-xl flex-col items-center py-6 space-y-6 border-b border-white/10 shadow-2xl transition-all origin-top">
+            <a href="index.html" class="text-white font-bold uppercase tracking-widest text-sm hover:text-eco-lime">Beranda</a>
+            <a href="ecobrick.html" class="text-white font-bold uppercase tracking-widest text-sm hover:text-eco-lime">Ecobrick</a>
+            <a href="ecoenzym.html" class="text-eco-lime font-bold uppercase tracking-widest text-sm border-b border-eco-lime pb-1">Ecoenzym</a>
         </div>
     </nav>
 
-    <header class="hero-enzym min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
-        <div class="max-w-5xl pt-20 text-center relative z-10">
-            <div class="reveal active inline-flex items-center gap-2 glass text-white text-xs font-bold px-6 py-3 rounded-full mb-8 uppercase tracking-widest shadow-2xl">
+    <header class="hero-enzym min-h-screen flex items-center justify-center px-4 md:px-6 relative overflow-hidden">
+        <div class="max-w-5xl pt-24 md:pt-20 text-center relative z-10">
+            <div class="reveal active inline-flex items-center gap-2 glass text-white text-[10px] md:text-xs font-bold px-4 md:px-6 py-2 md:py-3 rounded-full mb-6 md:mb-8 uppercase tracking-widest shadow-2xl">
                 <span class="w-2 h-2 rounded-full bg-eco-lime animate-pulse"></span>
                 Solusi Sampah Organik
             </div>
-            <h1 class="reveal active delay-100 text-5xl md:text-8xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
+            <h1 class="reveal active delay-100 text-5xl sm:text-6xl md:text-8xl font-extrabold text-white mb-6 md:mb-8 leading-[1.1] tracking-tight">
                 Cara Membuat <br>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-eco-lime to-eco-accent">Eco-Enzyme</span>
             </h1>
-            <p class="reveal active delay-200 text-white/70 text-lg md:text-2xl font-medium mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p class="reveal active delay-200 text-white/80 text-base md:text-2xl font-medium mb-10 md:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
                 Transformasi sederhana dari sisa dapur menjadi cairan sejuta manfaat untuk kelestarian lingkungan dan kebersihan rumah.
             </p>
-            <div class="reveal active delay-300 animate-float">
+            <div class="reveal active delay-300 animate-float hidden md:block">
                 <a href="#masalah" class="inline-flex items-center justify-center w-14 h-14 rounded-full glass hover:bg-white/20 transition-all text-white">
                     <i class="fas fa-arrow-down"></i>
                 </a>
@@ -132,54 +143,54 @@
         </div>
     </header>
 
-    <section id="masalah" class="py-32 px-6 max-w-7xl mx-auto relative">
-        <div class="reveal text-center max-w-3xl mx-auto mb-20">
-            <h2 class="text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-4">Latar Belakang</h2>
-            <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Kenapa Harus Peduli?</h3>
-            <p class="mt-6 text-gray-500 text-lg">Berbagai tantangan lingkungan yang dihadapi masyarakat berakar dari pengelolaan sampah organik yang belum optimal.</p>
+    <section id="masalah" class="py-20 md:py-32 px-6 max-w-7xl mx-auto relative">
+        <div class="reveal text-center max-w-3xl mx-auto mb-16 md:mb-20">
+            <h2 class="text-[10px] md:text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-3 md:mb-4">Latar Belakang</h2>
+            <h3 class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Kenapa Harus Peduli?</h3>
+            <p class="mt-4 md:mt-6 text-gray-500 text-base md:text-lg">Berbagai tantangan lingkungan yang dihadapi masyarakat berakar dari pengelolaan sampah organik yang belum optimal.</p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="reveal bg-white p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(16,185,129,0.1)] hover:-translate-y-2 transition-all duration-500 group border border-gray-100">
-                <div class="w-14 h-14 bg-eco-light rounded-2xl mb-8 flex items-center justify-center text-eco-primary group-hover:scale-110 group-hover:bg-eco-primary group-hover:text-white transition-all duration-500">
-                    <i class="fas fa-water text-xl"></i>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="reveal bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(16,185,129,0.1)] hover:-translate-y-2 transition-all duration-500 group border border-gray-100">
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-eco-light rounded-2xl mb-6 md:mb-8 flex items-center justify-center text-eco-primary group-hover:scale-110 group-hover:bg-eco-primary group-hover:text-white transition-all duration-500">
+                    <i class="fas fa-water text-lg md:text-xl"></i>
                 </div>
-                <h4 class="font-extrabold text-xl mb-3 text-gray-900">Sungai Kotor</h4>
-                <p class="text-gray-500 text-sm leading-relaxed">Limbah organik yang membusuk bebas mencemari ekosistem air sungai kita.</p>
+                <h4 class="font-extrabold text-lg md:text-xl mb-2 md:mb-3 text-gray-900">Sungai Kotor</h4>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed">Limbah organik yang membusuk bebas mencemari ekosistem air sungai kita.</p>
             </div>
-            <div class="reveal delay-100 bg-white p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(16,185,129,0.1)] hover:-translate-y-2 transition-all duration-500 group border border-gray-100">
-                <div class="w-14 h-14 bg-eco-light rounded-2xl mb-8 flex items-center justify-center text-eco-primary group-hover:scale-110 group-hover:bg-eco-primary group-hover:text-white transition-all duration-500">
-                    <i class="fas fa-flask text-xl"></i>
+            <div class="reveal delay-100 bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(16,185,129,0.1)] hover:-translate-y-2 transition-all duration-500 group border border-gray-100">
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-eco-light rounded-2xl mb-6 md:mb-8 flex items-center justify-center text-eco-primary group-hover:scale-110 group-hover:bg-eco-primary group-hover:text-white transition-all duration-500">
+                    <i class="fas fa-flask text-lg md:text-xl"></i>
                 </div>
-                <h4 class="font-extrabold text-xl mb-3 text-gray-900">Air Tercemar</h4>
-                <p class="text-gray-500 text-sm leading-relaxed">Kualitas air tanah dan permukaan menurun drastis akibat resapan sampah.</p>
+                <h4 class="font-extrabold text-lg md:text-xl mb-2 md:mb-3 text-gray-900">Air Tercemar</h4>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed">Kualitas air tanah dan permukaan menurun drastis akibat resapan sampah.</p>
             </div>
-            <div class="reveal delay-200 bg-white p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(16,185,129,0.1)] hover:-translate-y-2 transition-all duration-500 group border border-gray-100">
-                <div class="w-14 h-14 bg-eco-light rounded-2xl mb-8 flex items-center justify-center text-eco-primary group-hover:scale-110 group-hover:bg-eco-primary group-hover:text-white transition-all duration-500">
-                    <i class="fas fa-wind text-xl"></i>
+            <div class="reveal delay-200 bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(16,185,129,0.1)] hover:-translate-y-2 transition-all duration-500 group border border-gray-100">
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-eco-light rounded-2xl mb-6 md:mb-8 flex items-center justify-center text-eco-primary group-hover:scale-110 group-hover:bg-eco-primary group-hover:text-white transition-all duration-500">
+                    <i class="fas fa-wind text-lg md:text-xl"></i>
                 </div>
-                <h4 class="font-extrabold text-xl mb-3 text-gray-900">Bau Menyengat</h4>
-                <p class="text-gray-500 text-sm leading-relaxed">Gas metana dari sampah organik yang menumpuk menimbulkan polusi udara.</p>
+                <h4 class="font-extrabold text-lg md:text-xl mb-2 md:mb-3 text-gray-900">Bau Menyengat</h4>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed">Gas metana dari sampah organik yang menumpuk menimbulkan polusi udara.</p>
             </div>
-            <div class="reveal delay-300 bg-white p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(16,185,129,0.1)] hover:-translate-y-2 transition-all duration-500 group border border-gray-100">
-                <div class="w-14 h-14 bg-eco-light rounded-2xl mb-8 flex items-center justify-center text-eco-primary group-hover:scale-110 group-hover:bg-eco-primary group-hover:text-white transition-all duration-500">
-                    <i class="fas fa-dumpster text-xl"></i>
+            <div class="reveal delay-300 bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(16,185,129,0.1)] hover:-translate-y-2 transition-all duration-500 group border border-gray-100">
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-eco-light rounded-2xl mb-6 md:mb-8 flex items-center justify-center text-eco-primary group-hover:scale-110 group-hover:bg-eco-primary group-hover:text-white transition-all duration-500">
+                    <i class="fas fa-dumpster text-lg md:text-xl"></i>
                 </div>
-                <h4 class="font-extrabold text-xl mb-3 text-gray-900">Overkapasitas</h4>
-                <p class="text-gray-500 text-sm leading-relaxed">Volume limbah dapur terus bertambah setiap hari tanpa pengelolaan.</p>
+                <h4 class="font-extrabold text-lg md:text-xl mb-2 md:mb-3 text-gray-900">Overkapasitas</h4>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed">Volume limbah dapur terus bertambah setiap hari tanpa pengelolaan.</p>
             </div>
         </div>
     </section>
 
-    <section class="py-32 px-6 bg-eco-dark text-white relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-eco-primary/20 to-transparent"></div>
-        <div class="absolute -bottom-40 -left-40 w-96 h-96 border border-white/5 rounded-full"></div>
+    <section class="py-20 md:py-32 px-6 bg-eco-dark text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-full md:w-1/2 h-1/2 md:h-full bg-gradient-to-b md:bg-gradient-to-l from-eco-primary/20 to-transparent"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 md:w-96 md:h-96 border border-white/5 rounded-full"></div>
         
-        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 relative z-10">
-            <div class="lg:w-1/2 reveal-left">
-                <h2 class="text-xs font-black text-eco-lime uppercase tracking-[0.3em] mb-4">Pengenalan</h2>
-                <h3 class="text-4xl md:text-5xl font-extrabold mb-8 leading-tight tracking-tight">Apa Itu <span class="text-transparent bg-clip-text bg-gradient-to-r from-eco-lime to-white">Eco-Enzyme?</span></h3>
-                <p class="text-white/70 text-lg leading-relaxed mb-8">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 md:gap-16 relative z-10">
+            <div class="w-full lg:w-1/2 reveal-left">
+                <h2 class="text-[10px] md:text-xs font-black text-eco-lime uppercase tracking-[0.3em] mb-3 md:mb-4">Pengenalan</h2>
+                <h3 class="text-3xl md:text-5xl font-extrabold mb-6 md:mb-8 leading-tight tracking-tight">Apa Itu <span class="text-transparent bg-clip-text bg-gradient-to-r from-eco-lime to-white">Eco-Enzyme?</span></h3>
+                <p class="text-white/70 text-base md:text-lg leading-relaxed mb-8">
                     Eco-enzyme adalah cairan ajaib hasil fermentasi sisa kulit buah dan sayuran segar. Proses pembuatannya sangat sederhana, tanpa bahan kimia sintetis, dan bisa dilakukan oleh siapa saja langsung dari dapur rumah.
                 </p>
                 <div class="space-y-4">
@@ -187,18 +198,18 @@
                         <div class="w-10 h-10 rounded-full bg-eco-lime/20 flex items-center justify-center text-eco-lime shrink-0">
                             <i class="fas fa-leaf"></i>
                         </div>
-                        <p class="font-semibold">100% Organik & Alami</p>
+                        <p class="font-semibold text-sm md:text-base">100% Organik & Alami</p>
                     </div>
                     <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
                         <div class="w-10 h-10 rounded-full bg-eco-lime/20 flex items-center justify-center text-eco-lime shrink-0">
                             <i class="fas fa-wallet"></i>
                         </div>
-                        <p class="font-semibold">Sangat Ekonomis (Nyaris Tanpa Modal)</p>
+                        <p class="font-semibold text-sm md:text-base">Sangat Ekonomis (Nyaris Tanpa Modal)</p>
                     </div>
                 </div>
             </div>
-            <div class="lg:w-1/2 reveal-scale">
-                <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl group">
+            <div class="w-full lg:w-1/2 reveal-scale">
+                <div class="relative rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl group aspect-video lg:aspect-auto lg:h-[500px]">
                     <div class="absolute inset-0 bg-eco-dark/20 group-hover:bg-transparent transition-all duration-500 z-10"></div>
                     <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Eco Enzyme Process" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 </div>
@@ -206,117 +217,117 @@
         </div>
     </section>
 
-    <section class="py-32 px-6 max-w-5xl mx-auto">
-        <div class="reveal text-center max-w-3xl mx-auto mb-24">
-            <h2 class="text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-4">Tutorial Praktis</h2>
-            <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">5 Langkah Mudah</h3>
-            <p class="mt-6 text-gray-500 text-lg">Hanya butuh wadah, bahan sisa, dan sedikit kesabaran.</p>
+    <section class="py-20 md:py-32 px-6 max-w-5xl mx-auto">
+        <div class="reveal text-center max-w-3xl mx-auto mb-16 md:mb-24">
+            <h2 class="text-[10px] md:text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-3 md:mb-4">Tutorial Praktis</h2>
+            <h3 class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight">5 Langkah Mudah</h3>
+            <p class="mt-4 md:mt-6 text-gray-500 text-base md:text-lg">Hanya butuh wadah, bahan sisa, dan sedikit kesabaran.</p>
         </div>
         
-        <div class="space-y-8 relative before:absolute before:inset-0 before:ml-12 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-eco-light before:via-eco-accent/30 before:to-transparent">
+        <div class="space-y-8 md:space-y-12 relative before:absolute before:inset-0 before:ml-8 md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-eco-light before:via-eco-accent/30 before:to-transparent">
             
             <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div class="flex items-center justify-center w-24 h-24 rounded-full bg-white border-4 border-eco-light text-eco-primary font-black text-3xl shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-xl z-10 transition-transform duration-300 group-hover:scale-110 group-hover:border-eco-accent">1</div>
-                <div class="reveal-scale w-[calc(100%-7rem)] md:w-[calc(50%-4rem)] p-8 rounded-[2rem] bg-white shadow-lg border border-gray-50 group-hover:shadow-[0_20px_40px_rgb(16,185,129,0.05)] transition-all">
-                    <h4 class="font-extrabold text-2xl mb-2 text-gray-900">Siapkan Bahan</h4>
-                    <p class="text-gray-500 leading-relaxed">Kumpulkan kulit buah segar dan sayuran sisa potongan dari dapur.</p>
+                <div class="flex items-center justify-center w-16 h-16 md:w-24 md:h-24 rounded-full bg-white border-4 border-eco-light text-eco-primary font-black text-xl md:text-3xl shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-xl z-10 transition-transform duration-300 group-hover:scale-110 group-hover:border-eco-accent">1</div>
+                <div class="reveal-scale w-[calc(100%-4.5rem)] md:w-[calc(50%-4rem)] p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] bg-white shadow-lg border border-gray-50 group-hover:shadow-[0_20px_40px_rgb(16,185,129,0.05)] transition-all">
+                    <h4 class="font-extrabold text-lg md:text-2xl mb-2 text-gray-900">Siapkan Bahan</h4>
+                    <p class="text-gray-500 text-xs md:text-base leading-relaxed">Kumpulkan kulit buah segar dan sayuran sisa potongan dari dapur.</p>
                 </div>
             </div>
 
             <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div class="flex items-center justify-center w-24 h-24 rounded-full bg-white border-4 border-eco-light text-eco-primary font-black text-3xl shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-xl z-10 transition-transform duration-300 group-hover:scale-110 group-hover:border-eco-accent">2</div>
-                <div class="reveal-scale delay-100 w-[calc(100%-7rem)] md:w-[calc(50%-4rem)] p-8 rounded-[2rem] bg-white shadow-lg border border-gray-50 group-hover:shadow-[0_20px_40px_rgb(16,185,129,0.05)] transition-all">
-                    <h4 class="font-extrabold text-2xl mb-2 text-gray-900">Campur Air & Gula</h4>
-                    <p class="text-gray-500 leading-relaxed">Gunakan rumus rasio <b>1 : 3 : 10</b> (Gula Merah : Sisa Organik : Air Bersih).</p>
+                <div class="flex items-center justify-center w-16 h-16 md:w-24 md:h-24 rounded-full bg-white border-4 border-eco-light text-eco-primary font-black text-xl md:text-3xl shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-xl z-10 transition-transform duration-300 group-hover:scale-110 group-hover:border-eco-accent">2</div>
+                <div class="reveal-scale delay-100 w-[calc(100%-4.5rem)] md:w-[calc(50%-4rem)] p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] bg-white shadow-lg border border-gray-50 group-hover:shadow-[0_20px_40px_rgb(16,185,129,0.05)] transition-all">
+                    <h4 class="font-extrabold text-lg md:text-2xl mb-2 text-gray-900">Campur Air & Gula</h4>
+                    <p class="text-gray-500 text-xs md:text-base leading-relaxed">Gunakan rumus rasio <b>1 : 3 : 10</b> (Gula Merah : Sisa Organik : Air Bersih).</p>
                 </div>
             </div>
 
             <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div class="flex items-center justify-center w-24 h-24 rounded-full bg-white border-4 border-eco-light text-eco-primary font-black text-3xl shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-xl z-10 transition-transform duration-300 group-hover:scale-110 group-hover:border-eco-accent">3</div>
-                <div class="reveal-scale delay-200 w-[calc(100%-7rem)] md:w-[calc(50%-4rem)] p-8 rounded-[2rem] bg-white shadow-lg border border-gray-50 group-hover:shadow-[0_20px_40px_rgb(16,185,129,0.05)] transition-all">
-                    <h4 class="font-extrabold text-2xl mb-2 text-gray-900">Wadah Plastik</h4>
-                    <p class="text-gray-500 leading-relaxed">Masukkan ke wadah plastik. Sisakan 20% ruang kosong di atasnya untuk menampung gas.</p>
+                <div class="flex items-center justify-center w-16 h-16 md:w-24 md:h-24 rounded-full bg-white border-4 border-eco-light text-eco-primary font-black text-xl md:text-3xl shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-xl z-10 transition-transform duration-300 group-hover:scale-110 group-hover:border-eco-accent">3</div>
+                <div class="reveal-scale delay-200 w-[calc(100%-4.5rem)] md:w-[calc(50%-4rem)] p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] bg-white shadow-lg border border-gray-50 group-hover:shadow-[0_20px_40px_rgb(16,185,129,0.05)] transition-all">
+                    <h4 class="font-extrabold text-lg md:text-2xl mb-2 text-gray-900">Wadah Plastik</h4>
+                    <p class="text-gray-500 text-xs md:text-base leading-relaxed">Masukkan ke wadah plastik. Sisakan 20% ruang kosong di atasnya untuk menampung gas.</p>
                 </div>
             </div>
 
             <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div class="flex items-center justify-center w-24 h-24 rounded-full bg-white border-4 border-eco-light text-eco-primary font-black text-3xl shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-xl z-10 transition-transform duration-300 group-hover:scale-110 group-hover:border-eco-accent">4</div>
-                <div class="reveal-scale delay-300 w-[calc(100%-7rem)] md:w-[calc(50%-4rem)] p-8 rounded-[2rem] bg-white shadow-lg border border-gray-50 group-hover:shadow-[0_20px_40px_rgb(16,185,129,0.05)] transition-all">
-                    <h4 class="font-extrabold text-2xl mb-2 text-gray-900">Proses Fermentasi</h4>
-                    <p class="text-gray-500 leading-relaxed">Diamkan minimal 3 bulan. Wajib buka tutup sesekali di bulan pertama untuk membuang gas.</p>
+                <div class="flex items-center justify-center w-16 h-16 md:w-24 md:h-24 rounded-full bg-white border-4 border-eco-light text-eco-primary font-black text-xl md:text-3xl shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-xl z-10 transition-transform duration-300 group-hover:scale-110 group-hover:border-eco-accent">4</div>
+                <div class="reveal-scale delay-300 w-[calc(100%-4.5rem)] md:w-[calc(50%-4rem)] p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] bg-white shadow-lg border border-gray-50 group-hover:shadow-[0_20px_40px_rgb(16,185,129,0.05)] transition-all">
+                    <h4 class="font-extrabold text-lg md:text-2xl mb-2 text-gray-900">Proses Fermentasi</h4>
+                    <p class="text-gray-500 text-xs md:text-base leading-relaxed">Diamkan minimal 3 bulan. Wajib buka tutup sesekali di bulan pertama untuk membuang gas.</p>
                 </div>
             </div>
 
             <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div class="flex items-center justify-center w-24 h-24 rounded-full bg-white border-4 border-eco-light text-eco-primary font-black text-3xl shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-xl z-10 transition-transform duration-300 group-hover:scale-110 group-hover:border-eco-accent">5</div>
-                <div class="reveal-scale delay-100 w-[calc(100%-7rem)] md:w-[calc(50%-4rem)] p-8 rounded-[2rem] bg-eco-dark text-white shadow-[0_20px_40px_rgb(2,44,34,0.2)] border border-transparent transition-all">
-                    <h4 class="font-extrabold text-2xl mb-2">Panen & Gunakan</h4>
-                    <p class="text-white/70 leading-relaxed">Setelah 3 bulan saring cairan. Ampasnya bisa untuk pupuk, cairannya untuk pembersih!</p>
+                <div class="flex items-center justify-center w-16 h-16 md:w-24 md:h-24 rounded-full bg-white border-4 border-eco-light text-eco-primary font-black text-xl md:text-3xl shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-xl z-10 transition-transform duration-300 group-hover:scale-110 group-hover:border-eco-accent">5</div>
+                <div class="reveal-scale delay-100 w-[calc(100%-4.5rem)] md:w-[calc(50%-4rem)] p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] bg-eco-dark text-white shadow-[0_20px_40px_rgb(2,44,34,0.2)] border border-transparent transition-all">
+                    <h4 class="font-extrabold text-lg md:text-2xl mb-2">Panen & Gunakan</h4>
+                    <p class="text-white/70 text-xs md:text-base leading-relaxed">Setelah 3 bulan saring cairan. Ampasnya bisa untuk pupuk, cairannya untuk pembersih!</p>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <section class="py-16 px-6 max-w-6xl mx-auto -mt-16">
-        <div class="reveal bg-gradient-to-br from-eco-light/50 to-white border border-eco-accent/20 rounded-[3rem] p-10 md:p-16 shadow-xl">
-            <h3 class="text-2xl md:text-3xl font-black text-center text-gray-900 mb-12">Apa yang Terjadi Selama 3 Bulan?</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+    <section class="py-10 md:py-16 px-4 md:px-6 max-w-6xl mx-auto -mt-10 md:-mt-16">
+        <div class="reveal bg-gradient-to-br from-eco-light/50 to-white border border-eco-accent/20 rounded-[2rem] md:rounded-[3rem] p-6 md:p-16 shadow-xl">
+            <h3 class="text-xl md:text-3xl font-black text-center text-gray-900 mb-8 md:mb-12">Apa yang Terjadi Selama 3 Bulan?</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 relative">
                 <div class="hidden md:block absolute top-10 left-[15%] right-[15%] h-1 bg-eco-accent/30 rounded-full z-0"></div>
                 
                 <div class="text-center relative z-10 bg-white md:bg-transparent p-6 md:p-0 rounded-2xl shadow-sm md:shadow-none border border-gray-100 md:border-none">
-                    <div class="w-20 h-20 mx-auto bg-white border-4 border-eco-primary text-eco-primary rounded-full flex items-center justify-center text-2xl mb-6 shadow-lg">
+                    <div class="w-16 h-16 md:w-20 md:h-20 mx-auto bg-white border-4 border-eco-primary text-eco-primary rounded-full flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 shadow-lg">
                         <i class="fas fa-wind"></i>
                     </div>
-                    <h4 class="font-black text-xl mb-2">Bulan Ke-1</h4>
-                    <p class="text-gray-500 text-sm">Fase produksi gas tinggi. Mikroba sedang aktif memecah gula. <strong class="text-eco-primary">Wajib buka tutup wadah</strong> setiap hari agar tidak meledak.</p>
+                    <h4 class="font-black text-lg md:text-xl mb-2">Bulan Ke-1</h4>
+                    <p class="text-gray-500 text-xs md:text-sm">Fase produksi gas tinggi. Mikroba sedang aktif memecah gula. <strong class="text-eco-primary">Wajib buka tutup wadah</strong> setiap hari agar tidak meledak.</p>
                 </div>
                 <div class="text-center relative z-10 bg-white md:bg-transparent p-6 md:p-0 rounded-2xl shadow-sm md:shadow-none border border-gray-100 md:border-none">
-                    <div class="w-20 h-20 mx-auto bg-white border-4 border-eco-accent text-eco-accent rounded-full flex items-center justify-center text-2xl mb-6 shadow-lg">
+                    <div class="w-16 h-16 md:w-20 md:h-20 mx-auto bg-white border-4 border-eco-accent text-eco-accent rounded-full flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 shadow-lg">
                         <i class="fas fa-flask"></i>
                     </div>
-                    <h4 class="font-black text-xl mb-2">Bulan Ke-2</h4>
-                    <p class="text-gray-500 text-sm">Fase pembentukan enzim. Bau alkohol/asam mulai tercium kuat dan jamur pitera putih mulai muncul di permukaan.</p>
+                    <h4 class="font-black text-lg md:text-xl mb-2">Bulan Ke-2</h4>
+                    <p class="text-gray-500 text-xs md:text-sm">Fase pembentukan enzim. Bau alkohol/asam mulai tercium kuat dan jamur pitera putih mulai muncul di permukaan.</p>
                 </div>
                 <div class="text-center relative z-10 bg-white md:bg-transparent p-6 md:p-0 rounded-2xl shadow-sm md:shadow-none border border-gray-100 md:border-none">
-                    <div class="w-20 h-20 mx-auto bg-eco-primary text-white rounded-full flex items-center justify-center text-2xl mb-6 shadow-lg shadow-eco-primary/40">
+                    <div class="w-16 h-16 md:w-20 md:h-20 mx-auto bg-eco-primary text-white rounded-full flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 shadow-lg shadow-eco-primary/40">
                         <i class="fas fa-check"></i>
                     </div>
-                    <h4 class="font-black text-xl mb-2">Bulan Ke-3</h4>
-                    <p class="text-gray-500 text-sm">Fase pematangan. Cairan sudah stabil, asamnya segar, dan siap untuk disaring serta diaplikasikan.</p>
+                    <h4 class="font-black text-lg md:text-xl mb-2">Bulan Ke-3</h4>
+                    <p class="text-gray-500 text-xs md:text-sm">Fase pematangan. Cairan sudah stabil, asamnya segar, dan siap untuk disaring serta diaplikasikan.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-10 px-6 max-w-5xl mx-auto">
-        <div class="reveal bg-amber-50 border-l-8 border-amber-500 p-8 rounded-r-[2rem] rounded-bl-[2rem] shadow-sm flex flex-col md:flex-row gap-6 items-start">
-            <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-3xl shrink-0">
+    <section class="py-10 px-4 md:px-6 max-w-5xl mx-auto">
+        <div class="reveal bg-amber-50 border-l-4 md:border-l-8 border-amber-500 p-6 md:p-8 rounded-r-[1.5rem] md:rounded-r-[2rem] rounded-bl-[1.5rem] md:rounded-bl-[2rem] shadow-sm flex flex-col md:flex-row gap-4 md:gap-6 items-start">
+            <div class="w-12 h-12 md:w-16 md:h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-xl md:text-3xl shrink-0">
                 <i class="fas fa-triangle-exclamation"></i>
             </div>
             <div>
-                <h4 class="text-xl font-black text-amber-900 mb-2">PERHATIAN KESELAMATAN (SAFETY FIRST)</h4>
-                <p class="text-amber-800/80 leading-relaxed mb-4 text-sm md:text-base">Meskipun terbuat dari bahan organik alami, cairan Eco-Enzyme adalah larutan asam pekat yang berfungsi sebagai cairan pembersih luar.</p>
-                <ul class="text-amber-900 text-sm font-bold space-y-2">
-                    <li><i class="fas fa-ban text-red-500 mr-2"></i> <strong>TIDAK UNTUK DIKONSUMSI / DIMINUM</strong> dalam kondisi apapun.</li>
-                    <li><i class="fas fa-child text-amber-500 mr-2"></i> Jauhkan wadah fermentasi dari jangkauan anak-anak dan hewan peliharaan.</li>
-                    <li><i class="fas fa-eye text-amber-500 mr-2"></i> Jika tidak sengaja terkena mata, segera bilas dengan air bersih yang mengalir.</li>
+                <h4 class="text-lg md:text-xl font-black text-amber-900 mb-2">PERHATIAN KESELAMATAN (SAFETY FIRST)</h4>
+                <p class="text-amber-800/80 leading-relaxed mb-4 text-xs md:text-sm">Meskipun terbuat dari bahan organik alami, cairan Eco-Enzyme adalah larutan asam pekat yang berfungsi sebagai cairan pembersih luar.</p>
+                <ul class="text-amber-900 text-xs md:text-sm font-bold space-y-2">
+                    <li class="flex items-start gap-2"><i class="fas fa-ban text-red-500 mt-1 shrink-0"></i> <span><strong>TIDAK UNTUK DIKONSUMSI / DIMINUM</strong> dalam kondisi apapun.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-child text-amber-500 mt-1 shrink-0"></i> <span>Jauhkan wadah fermentasi dari jangkauan anak-anak dan hewan peliharaan.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-eye text-amber-500 mt-1 shrink-0"></i> <span>Jika tidak sengaja terkena mata, segera bilas dengan air bersih yang mengalir.</span></li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section class="py-32 px-6 bg-eco-light/50 border-y border-eco-accent/10">
+    <section class="py-20 md:py-32 px-6 bg-eco-light/50 border-y border-eco-accent/10">
         <div class="max-w-7xl mx-auto">
-            <div class="reveal text-center max-w-3xl mx-auto mb-20">
-                <h2 class="text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-4">Komposisi</h2>
-                <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Persiapan Bahan</h3>
-                <p class="mt-6 text-gray-500 text-lg">Pastikan rasio 1:3:10 untuk hasil fermentasi yang sempurna.</p>
+            <div class="reveal text-center max-w-3xl mx-auto mb-16 md:mb-20">
+                <h2 class="text-[10px] md:text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-3 md:mb-4">Komposisi</h2>
+                <h3 class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Persiapan Bahan</h3>
+                <p class="mt-4 md:mt-6 text-gray-500 text-base md:text-lg">Pastikan rasio 1:3:10 untuk hasil fermentasi yang sempurna.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="reveal bg-white rounded-[2rem] overflow-hidden shadow-lg group">
-                    <div class="h-56 overflow-hidden relative">
+                    <div class="h-48 md:h-56 overflow-hidden relative">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
                         <img src="https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute bottom-4 left-6 z-20">
@@ -324,12 +335,13 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h4 class="font-extrabold text-xl mb-2 text-gray-900">Sisa Organik</h4>
-                        <p class="text-sm text-gray-500">Kulit buah atau sayuran segar sisa potongan dapur.</p>
+                        <h4 class="font-extrabold text-lg md:text-xl mb-1 md:mb-2 text-gray-900">Sisa Organik</h4>
+                        <p class="text-xs md:text-sm text-gray-500">Kulit buah atau sayuran segar sisa potongan dapur.</p>
                     </div>
                 </div>
+                
                 <div class="reveal delay-100 bg-white rounded-[2rem] overflow-hidden shadow-lg group">
-                    <div class="h-56 overflow-hidden relative">
+                    <div class="h-48 md:h-56 overflow-hidden relative">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
                         <img src="https://images.unsplash.com/photo-1620189507195-68309c04c4d0?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute bottom-4 left-6 z-20">
@@ -337,12 +349,13 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h4 class="font-extrabold text-xl mb-2 text-gray-900">Gula Alami</h4>
-                        <p class="text-sm text-gray-500">Gula aren, gula merah, atau molase. Hindari gula putih.</p>
+                        <h4 class="font-extrabold text-lg md:text-xl mb-1 md:mb-2 text-gray-900">Gula Alami</h4>
+                        <p class="text-xs md:text-sm text-gray-500">Gula aren, gula merah, atau molase. Hindari gula putih.</p>
                     </div>
                 </div>
+                
                 <div class="reveal delay-200 bg-white rounded-[2rem] overflow-hidden shadow-lg group">
-                    <div class="h-56 overflow-hidden relative">
+                    <div class="h-48 md:h-56 overflow-hidden relative">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHZXmJaKpRixTactxhYerkXro6E3YuhSLBxA&s" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute bottom-4 left-6 z-20">
@@ -350,12 +363,13 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h4 class="font-extrabold text-xl mb-2 text-gray-900">Air Bersih</h4>
-                        <p class="text-sm text-gray-500">Air sumur, hujan, atau air PDAM yang diendapkan.</p>
+                        <h4 class="font-extrabold text-lg md:text-xl mb-1 md:mb-2 text-gray-900">Air Bersih</h4>
+                        <p class="text-xs md:text-sm text-gray-500">Air sumur, hujan, atau air PDAM yang diendapkan.</p>
                     </div>
                 </div>
+                
                 <div class="reveal delay-300 bg-white rounded-[2rem] overflow-hidden shadow-lg group">
-                    <div class="h-56 overflow-hidden relative">
+                    <div class="h-48 md:h-56 overflow-hidden relative">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
                         <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute bottom-4 left-6 z-20">
@@ -363,253 +377,237 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h4 class="font-extrabold text-xl mb-2 text-gray-900">Wadah Plastik</h4>
-                        <p class="text-sm text-gray-500">Botol/jerigen plastik lentur. Jangan gunakan kaca.</p>
+                        <h4 class="font-extrabold text-lg md:text-xl mb-1 md:mb-2 text-gray-900">Wadah Plastik</h4>
+                        <p class="text-xs md:text-sm text-gray-500">Botol/jerigen plastik lentur. Jangan gunakan kaca.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-32 px-6 bg-eco-dark relative overflow-hidden">
-        <div class="absolute -right-20 top-0 w-80 h-80 bg-eco-primary/20 rounded-full blur-[80px]"></div>
+    <section class="py-20 md:py-32 px-4 md:px-6 bg-eco-dark relative overflow-hidden">
+        <div class="absolute -right-20 top-0 w-64 h-64 md:w-80 md:h-80 bg-eco-primary/20 rounded-full blur-[60px] md:blur-[80px]"></div>
         
         <div class="max-w-4xl mx-auto relative z-10">
-            <div class="reveal text-center mb-16">
-                <h2 class="text-xs font-black text-eco-lime uppercase tracking-[0.3em] mb-4">Tool Pintar</h2>
-                <h3 class="text-4xl font-extrabold text-white">Kalkulator Eco-Enzyme</h3>
-                <p class="mt-4 text-white/60">Input kapasitas wadahmu untuk mengetahui takaran bahan yang presisi.</p>
+            <div class="reveal text-center mb-12 md:mb-16">
+                <h2 class="text-[10px] md:text-xs font-black text-eco-lime uppercase tracking-[0.3em] mb-3 md:mb-4">Tool Pintar</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-white">Kalkulator Eco-Enzyme</h3>
+                <p class="mt-3 md:mt-4 text-sm md:text-base text-white/60">Input kapasitas wadahmu untuk mengetahui takaran bahan yang presisi.</p>
             </div>
 
-            <div class="reveal glass-dark p-8 md:p-12 rounded-[3rem] border border-white/10">
-                <div class="mb-10">
-                    <label class="block text-white/80 text-sm font-bold mb-4 uppercase tracking-widest text-center">Volume Wadah (Liter)</label>
-                    <input type="number" id="volumeInput" oninput="calculateEnzyme()" placeholder="Ketik angka, contoh: 5" class="w-full bg-white/5 border border-white/20 rounded-2xl px-6 py-5 text-center text-4xl font-black text-eco-lime focus:outline-none focus:border-eco-lime transition-all">
+            <div class="reveal glass-dark p-6 md:p-12 rounded-[2rem] md:rounded-[3rem] border border-white/10">
+                <div class="mb-8 md:mb-10">
+                    <label class="block text-white/80 text-xs md:text-sm font-bold mb-3 md:mb-4 uppercase tracking-widest text-center">Volume Wadah (Liter)</label>
+                    <input type="number" id="volumeInput" oninput="calculateEnzyme()" placeholder="Ketik angka, contoh: 5" class="w-full bg-white/5 border border-white/20 rounded-xl md:rounded-2xl px-4 md:px-6 py-4 md:py-5 text-center text-2xl md:text-4xl font-black text-eco-lime focus:outline-none focus:border-eco-lime transition-all">
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="p-6 bg-white/5 rounded-3xl text-center border border-white/5">
-                        <p class="text-white/40 text-xs font-bold uppercase mb-2">Gula Merah (gr)</p>
-                        <h5 id="gulaResult" class="text-3xl font-black text-white">-</h5>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                    <div class="p-4 md:p-6 bg-white/5 rounded-2xl md:rounded-3xl text-center border border-white/5">
+                        <p class="text-white/40 text-[10px] md:text-xs font-bold uppercase mb-1 md:mb-2">Gula Merah (gr)</p>
+                        <h5 id="gulaResult" class="text-2xl md:text-3xl font-black text-white">-</h5>
                     </div>
-                    <div class="p-6 bg-white/5 rounded-3xl text-center border border-white/5">
-                        <p class="text-white/40 text-xs font-bold uppercase mb-2">Sisa Organik (gr)</p>
-                        <h5 id="organikResult" class="text-3xl font-black text-white">-</h5>
+                    <div class="p-4 md:p-6 bg-white/5 rounded-2xl md:rounded-3xl text-center border border-white/5">
+                        <p class="text-white/40 text-[10px] md:text-xs font-bold uppercase mb-1 md:mb-2">Sisa Organik (gr)</p>
+                        <h5 id="organikResult" class="text-2xl md:text-3xl font-black text-white">-</h5>
                     </div>
-                    <div class="p-6 bg-white/5 rounded-3xl text-center border border-white/5">
-                        <p class="text-white/40 text-xs font-bold uppercase mb-2">Air Bersih (ml)</p>
-                        <h5 id="airResult" class="text-3xl font-black text-white">-</h5>
+                    <div class="p-4 md:p-6 bg-white/5 rounded-2xl md:rounded-3xl text-center border border-white/5">
+                        <p class="text-white/40 text-[10px] md:text-xs font-bold uppercase mb-1 md:mb-2">Air Bersih (ml)</p>
+                        <h5 id="airResult" class="text-2xl md:text-3xl font-black text-white">-</h5>
                     </div>
                 </div>
-                <p class="mt-8 text-center text-white/30 text-xs italic">*Perhitungan sudah otomatis menyisakan ruang 20% untuk gas fermentasi.</p>
+                <p class="mt-6 md:mt-8 text-center text-white/30 text-[10px] md:text-xs italic">*Perhitungan sudah otomatis menyisakan ruang 20% untuk gas fermentasi.</p>
             </div>
         </div>
     </section>
 
-    <section class="py-32 px-6 max-w-7xl mx-auto">
-        <div class="reveal text-center mb-20">
-            <h2 class="text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-4">Quality Control</h2>
-            <h3 class="text-4xl font-extrabold text-gray-900">Pemilihan Bahan Organik</h3>
+    <section class="py-20 md:py-32 px-6 max-w-7xl mx-auto">
+        <div class="reveal text-center mb-16 md:mb-20">
+            <h2 class="text-[10px] md:text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-3 md:mb-4">Quality Control</h2>
+            <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900">Pemilihan Bahan Organik</h3>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            <div class="reveal-left bg-eco-light/50 p-8 md:p-10 rounded-[3rem] border border-eco-accent/20">
-                <h4 class="text-2xl font-black text-eco-dark mb-8 flex items-center gap-3">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+            <div class="reveal-left bg-eco-light/50 p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] border border-eco-accent/20">
+                <h4 class="text-xl md:text-2xl font-black text-eco-dark mb-6 md:mb-8 flex items-center gap-3">
                     <i class="fas fa-check-circle text-eco-primary"></i> Dianjurkan
                 </h4>
-                <ul class="space-y-6">
-                    <li class="flex gap-4">
-                        <div class="w-2 h-2 rounded-full bg-eco-primary mt-2 shrink-0"></div>
-                        <p class="text-gray-700 font-medium">Kulit buah segar (Jeruk, Nanas, Apel, Mangga, Lemon)</p>
+                <ul class="space-y-4 md:space-y-6">
+                    <li class="flex gap-3 md:gap-4">
+                        <div class="w-2 h-2 rounded-full bg-eco-primary mt-1.5 md:mt-2 shrink-0"></div>
+                        <p class="text-gray-700 text-sm md:text-base font-medium">Kulit buah segar (Jeruk, Nanas, Apel, Mangga, Lemon)</p>
                     </li>
-                    <li class="flex gap-4">
-                        <div class="w-2 h-2 rounded-full bg-eco-primary mt-2 shrink-0"></div>
-                        <p class="text-gray-700 font-medium">Sisa sayuran segar yang belum dimasak (Kangkung, Sawi)</p>
+                    <li class="flex gap-3 md:gap-4">
+                        <div class="w-2 h-2 rounded-full bg-eco-primary mt-1.5 md:mt-2 shrink-0"></div>
+                        <p class="text-gray-700 text-sm md:text-base font-medium">Sisa sayuran segar yang belum dimasak (Kangkung, Sawi)</p>
                     </li>
-                    <li class="flex gap-4">
-                        <div class="w-2 h-2 rounded-full bg-eco-primary mt-2 shrink-0"></div>
-                        <p class="text-gray-700 font-medium">Gula Merah, Gula Aren, atau Molase murni</p>
+                    <li class="flex gap-3 md:gap-4">
+                        <div class="w-2 h-2 rounded-full bg-eco-primary mt-1.5 md:mt-2 shrink-0"></div>
+                        <p class="text-gray-700 text-sm md:text-base font-medium">Gula Merah, Gula Aren, atau Molase murni</p>
                     </li>
                 </ul>
             </div>
             
-            <div class="reveal-right bg-red-50 p-8 md:p-10 rounded-[3rem] border border-red-100">
-                <h4 class="text-2xl font-black text-red-900 mb-8 flex items-center gap-3">
+            <div class="reveal-right bg-red-50 p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] border border-red-100">
+                <h4 class="text-xl md:text-2xl font-black text-red-900 mb-6 md:mb-8 flex items-center gap-3">
                     <i class="fas fa-times-circle text-red-500"></i> Hindari
                 </h4>
-                <ul class="space-y-6">
-                    <li class="flex gap-4">
-                        <div class="w-2 h-2 rounded-full bg-red-400 mt-2 shrink-0"></div>
-                        <p class="text-gray-700 font-medium">Bahan yang sudah busuk, berjamur hitam, atau berulat</p>
+                <ul class="space-y-4 md:space-y-6">
+                    <li class="flex gap-3 md:gap-4">
+                        <div class="w-2 h-2 rounded-full bg-red-400 mt-1.5 md:mt-2 shrink-0"></div>
+                        <p class="text-gray-700 text-sm md:text-base font-medium">Bahan yang sudah busuk, berjamur hitam, atau berulat</p>
                     </li>
-                    <li class="flex gap-4">
-                        <div class="w-2 h-2 rounded-full bg-red-400 mt-2 shrink-0"></div>
-                        <p class="text-gray-700 font-medium">Bahan berlemak, berminyak, atau sisa masakan berbumbu</p>
+                    <li class="flex gap-3 md:gap-4">
+                        <div class="w-2 h-2 rounded-full bg-red-400 mt-1.5 md:mt-2 shrink-0"></div>
+                        <p class="text-gray-700 text-sm md:text-base font-medium">Bahan berlemak, berminyak, atau sisa masakan berbumbu</p>
                     </li>
-                    <li class="flex gap-4">
-                        <div class="w-2 h-2 rounded-full bg-red-400 mt-2 shrink-0"></div>
-                        <p class="text-gray-700 font-medium">Limbah hewani (Daging, Tulang, Kulit Telur)</p>
+                    <li class="flex gap-3 md:gap-4">
+                        <div class="w-2 h-2 rounded-full bg-red-400 mt-1.5 md:mt-2 shrink-0"></div>
+                        <p class="text-gray-700 text-sm md:text-base font-medium">Limbah hewani (Daging, Tulang, Kulit Telur)</p>
                     </li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-white border-t border-gray-100">
+    <section class="py-20 md:py-24 px-6 bg-white border-t border-gray-100">
         <div class="max-w-5xl mx-auto">
-            <div class="reveal text-center mb-16">
-                <h2 class="text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-4">Monitoring</h2>
-                <h3 class="text-4xl font-extrabold text-gray-900">Tanda Keberhasilan</h3>
+            <div class="reveal text-center mb-12 md:mb-16">
+                <h2 class="text-[10px] md:text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-3 md:mb-4">Monitoring</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900">Tanda Keberhasilan</h3>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="reveal-scale p-8 rounded-3xl bg-[#fafafa] border border-gray-100 flex gap-6 items-center group shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-16 h-16 rounded-2xl bg-eco-lime/40 flex items-center justify-center text-eco-dark text-2xl group-hover:scale-110 transition-transform shrink-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <div class="reveal-scale p-6 md:p-8 rounded-[1.5rem] md:rounded-3xl bg-[#fafafa] border border-gray-100 flex gap-4 md:gap-6 items-center group shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-eco-lime/40 flex items-center justify-center text-eco-dark text-xl md:text-2xl group-hover:scale-110 transition-transform shrink-0">
                         <i class="fas fa-nose"></i>
                     </div>
                     <div>
-                        <h5 class="font-bold text-lg text-gray-900">Aroma Fermentasi</h5>
-                        <p class="text-gray-500 text-sm mt-1">Cairan berbau asam segar khas fermentasi atau beraroma sari buah alami.</p>
+                        <h5 class="font-bold text-base md:text-lg text-gray-900">Aroma Fermentasi</h5>
+                        <p class="text-gray-500 text-xs md:text-sm mt-1">Cairan berbau asam segar khas fermentasi atau beraroma sari buah alami.</p>
                     </div>
                 </div>
-                <div class="reveal-scale delay-100 p-8 rounded-3xl bg-[#fafafa] border border-gray-100 flex gap-6 items-center group shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center text-blue-600 text-2xl group-hover:scale-110 transition-transform shrink-0">
+                <div class="reveal-scale delay-100 p-6 md:p-8 rounded-[1.5rem] md:rounded-3xl bg-[#fafafa] border border-gray-100 flex gap-4 md:gap-6 items-center group shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-blue-100 flex items-center justify-center text-blue-600 text-xl md:text-2xl group-hover:scale-110 transition-transform shrink-0">
                         <i class="fas fa-eye"></i>
                     </div>
                     <div>
-                        <h5 class="font-bold text-lg text-gray-900">Jamur Putih (Pitera)</h5>
-                        <p class="text-gray-500 text-sm mt-1">Muncul lapisan jamur putih tipis di permukaan adalah indikasi proses sehat.</p>
+                        <h5 class="font-bold text-base md:text-lg text-gray-900">Jamur Putih (Pitera)</h5>
+                        <p class="text-gray-500 text-xs md:text-sm mt-1">Muncul lapisan jamur putih tipis di permukaan adalah indikasi proses sehat.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-32 px-6 max-w-6xl mx-auto text-center">
-        <div class="reveal">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-8 tracking-tight">Tonton Pembuatannya</h2>
-            <p class="text-gray-500 text-lg mb-16 max-w-2xl mx-auto">Masih bingung? Mari lihat proses pembuatannya secara langsung melalui tayangan dokumenter dari tim Bojongsantos.</p>
-        </div>
-        
-        <div class="reveal-scale aspect-video rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] relative group cursor-pointer border border-gray-100">
-            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center backdrop-blur-[2px]">
-                <div class="w-24 h-24 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 group-hover:bg-eco-lime group-hover:text-eco-dark transition-all duration-300 text-white border border-white/50">
-                    <i class="fas fa-play text-3xl ml-2"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-10 px-6 max-w-5xl mx-auto">
-        <div class="reveal bg-gradient-to-r from-eco-primary to-eco-accent rounded-[3rem] p-10 md:p-14 text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
-            <div class="flex items-center gap-6">
-                <div class="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center text-4xl shrink-0">
+    <section class="py-10 px-4 md:px-6 max-w-5xl mx-auto">
+        <div class="reveal bg-gradient-to-r from-eco-primary to-eco-accent rounded-[2rem] md:rounded-[3rem] p-6 md:p-14 text-white flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 shadow-xl text-center md:text-left">
+            <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                <div class="w-16 h-16 md:w-20 md:h-20 bg-white/20 rounded-2xl flex items-center justify-center text-3xl md:text-4xl shrink-0">
                     <i class="fas fa-file-pdf"></i>
                 </div>
                 <div>
-                    <h3 class="text-2xl md:text-3xl font-black mb-2">Panduan Cetak (Cheat Sheet)</h3>
-                    <p class="text-white/80">Unduh lembar panduan 1 halaman ini untuk ditempel di dinding dapur Anda agar tidak lupa takarannya.</p>
+                    <h3 class="text-xl md:text-3xl font-black mb-2">Panduan Cetak (Cheat Sheet)</h3>
+                    <p class="text-white/80 text-sm md:text-base">Unduh lembar panduan 1 halaman ini untuk ditempel di dinding dapur Anda agar tidak lupa takarannya.</p>
                 </div>
             </div>
-            <button class="bg-white text-eco-primary px-8 py-4 rounded-full font-black text-lg shadow-lg hover:scale-105 transition-transform shrink-0 whitespace-nowrap">
+            <button class="w-full md:w-auto bg-white text-eco-primary px-6 md:px-8 py-3 md:py-4 rounded-full font-black text-base md:text-lg shadow-lg hover:scale-105 transition-transform shrink-0 whitespace-nowrap">
                 <i class="fas fa-download mr-2"></i> Unduh PDF
             </button>
         </div>
     </section>
 
-    <section class="py-32 px-6 bg-gray-900 text-white relative overflow-hidden rounded-t-[3rem] md:rounded-t-[5rem] z-10 mt-20">
+    <section class="py-20 md:py-32 px-6 bg-gray-900 text-white relative overflow-hidden rounded-t-[3rem] md:rounded-t-[5rem] z-10 mt-16 md:mt-20">
         <div class="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-eco-primary/20 via-gray-900 to-gray-900 pointer-events-none"></div>
         
         <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-20 gap-6 md:gap-8 text-center md:text-left">
                 <div class="reveal-left max-w-2xl">
-                    <h2 class="text-xs font-black text-eco-lime uppercase tracking-[0.3em] mb-4">Kegunaan</h2>
-                    <h3 class="text-4xl md:text-6xl font-extrabold tracking-tight">Sejuta Manfaat <br>Untuk Ekosistem</h3>
+                    <h2 class="text-[10px] md:text-xs font-black text-eco-lime uppercase tracking-[0.3em] mb-3 md:mb-4">Kegunaan</h2>
+                    <h3 class="text-3xl md:text-6xl font-extrabold tracking-tight">Sejuta Manfaat <br class="hidden md:block">Untuk Ekosistem</h3>
                 </div>
                 <div class="reveal-right pb-2">
-                    <p class="text-gray-400 text-lg max-w-sm">Berbagai pengaplikasian cairan hasil fermentasi untuk kebutuhan rumah tangga dan lingkungan luas.</p>
+                    <p class="text-gray-400 text-sm md:text-lg max-w-sm mx-auto md:mx-0">Berbagai pengaplikasian cairan hasil fermentasi untuk kebutuhan rumah tangga dan lingkungan luas.</p>
                 </div>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="reveal glass-dark p-8 rounded-[2rem] hover:bg-white/10 transition-colors group">
-                    <div class="w-12 h-12 rounded-full bg-eco-lime/20 flex items-center justify-center text-eco-lime mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-hand-sparkles text-lg"></i>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <div class="reveal glass-dark p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] hover:bg-white/10 transition-colors group">
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-eco-lime/20 flex items-center justify-center text-eco-lime mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-hand-sparkles text-base md:text-lg"></i>
                     </div>
-                    <h4 class="font-extrabold text-xl mb-3">Pembersih Alami</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">Pengganti cairan pel lantai, pembersih kaca, hingga cairan pencuci piring yang bebas bahan kimia keras.</p>
+                    <h4 class="font-extrabold text-lg md:text-xl mb-2 md:mb-3">Pembersih Alami</h4>
+                    <p class="text-gray-400 text-xs md:text-sm leading-relaxed">Pengganti cairan pel lantai, pembersih kaca, hingga pencuci piring bebas bahan kimia.</p>
                 </div>
-                <div class="reveal delay-100 glass-dark p-8 rounded-[2rem] hover:bg-white/10 transition-colors group">
-                    <div class="w-12 h-12 rounded-full bg-eco-lime/20 flex items-center justify-center text-eco-lime mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-droplet text-lg"></i>
+                <div class="reveal delay-100 glass-dark p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] hover:bg-white/10 transition-colors group">
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-eco-lime/20 flex items-center justify-center text-eco-lime mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-droplet text-base md:text-lg"></i>
                     </div>
-                    <h4 class="font-extrabold text-xl mb-3">Penjernih Air</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">Cairan dituang ke danau atau sungai yang tercemar untuk membantu memecah bakteri dan menjernihkan air.</p>
+                    <h4 class="font-extrabold text-lg md:text-xl mb-2 md:mb-3">Penjernih Air</h4>
+                    <p class="text-gray-400 text-xs md:text-sm leading-relaxed">Dituang ke danau atau sungai yang tercemar untuk membantu memecah bakteri dan menjernihkan air.</p>
                 </div>
-                <div class="reveal delay-200 glass-dark p-8 rounded-[2rem] hover:bg-white/10 transition-colors group">
-                    <div class="w-12 h-12 rounded-full bg-eco-lime/20 flex items-center justify-center text-eco-lime mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-seedling text-lg"></i>
+                <div class="reveal delay-200 glass-dark p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] hover:bg-white/10 transition-colors group">
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-eco-lime/20 flex items-center justify-center text-eco-lime mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-seedling text-base md:text-lg"></i>
                     </div>
-                    <h4 class="font-extrabold text-xl mb-3">Pupuk Tanaman</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">Campurkan dengan air sebagai pupuk cair organik yang menyuburkan tanah dan mempercepat pertumbuhan.</p>
+                    <h4 class="font-extrabold text-lg md:text-xl mb-2 md:mb-3">Pupuk Tanaman</h4>
+                    <p class="text-gray-400 text-xs md:text-sm leading-relaxed">Campurkan dengan air sebagai pupuk cair organik yang menyuburkan tanah.</p>
                 </div>
-                <div class="reveal delay-300 glass-dark p-8 rounded-[2rem] hover:bg-white/10 transition-colors group">
-                    <div class="w-12 h-12 rounded-full bg-eco-lime/20 flex items-center justify-center text-eco-lime mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-shield-cat text-lg"></i>
+                <div class="reveal delay-300 glass-dark p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] hover:bg-white/10 transition-colors group">
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-eco-lime/20 flex items-center justify-center text-eco-lime mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-shield-cat text-base md:text-lg"></i>
                     </div>
-                    <h4 class="font-extrabold text-xl mb-3">Pengusir Hama</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">Aroma fermentasinya secara alami mengusir serangga, tikus, dan kecoa dari sekitar area rumah.</p>
+                    <h4 class="font-extrabold text-lg md:text-xl mb-2 md:mb-3">Pengusir Hama</h4>
+                    <p class="text-gray-400 text-xs md:text-sm leading-relaxed">Aroma fermentasinya secara alami mengusir serangga, tikus, dan kecoa dari sekitar rumah.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-32 px-6 bg-eco-light/30">
+    <section class="py-20 md:py-32 px-6 bg-eco-light/30">
         <div class="max-w-6xl mx-auto">
-            <div class="reveal text-center mb-20">
-                <h2 class="text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-4">Bukti Nyata</h2>
-                <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Dampak Nyata di Masyarakat</h3>
-                <p class="mt-4 text-gray-500">Berbagai liputan dan jurnal pengabdian mencatat keberhasilan warga di berbagai daerah yang telah rutin mempraktikkan Eco-Enzyme.</p>
+            <div class="reveal text-center mb-16 md:mb-20">
+                <h2 class="text-[10px] md:text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-3 md:mb-4">Bukti Nyata</h2>
+                <h3 class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Dampak Nyata di Masyarakat</h3>
+                <p class="mt-3 md:mt-4 text-sm md:text-base text-gray-500">Berbagai liputan dan jurnal pengabdian mencatat keberhasilan warga di berbagai daerah yang telah rutin mempraktikkan Eco-Enzyme.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="reveal bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative flex flex-col justify-between">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="reveal bg-white p-6 md:p-8 rounded-[1.5rem] md:rounded-3xl shadow-sm border border-gray-100 relative flex flex-col justify-between">
                     <div>
-                        <i class="fas fa-quote-right text-4xl text-eco-light absolute top-6 right-6"></i>
-                        <p class="text-gray-600 italic mb-8 relative z-10">"Cairan eco enzyme kami manfaatkan untuk disemprotkan ke udara di beberapa titik kota. Ini sangat mendukung program kota sehat sekaligus upaya langsung kami dalam mengurangi polusi lingkungan."</p>
+                        <i class="fas fa-quote-right text-3xl md:text-4xl text-eco-light absolute top-6 right-6"></i>
+                        <p class="text-gray-600 italic mb-6 md:mb-8 relative z-10 text-sm md:text-base">"Cairan eco enzyme kami manfaatkan untuk disemprotkan ke udara di beberapa titik kota. Ini sangat mendukung program kota sehat sekaligus upaya langsung kami dalam mengurangi polusi lingkungan."</p>
                     </div>
-                    <div class="flex items-center gap-4 mt-auto">
-                        <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-black shrink-0">M</div>
+                    <div class="flex items-center gap-3 md:gap-4 mt-auto">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-black shrink-0 text-sm md:text-base">M</div>
                         <div>
-                            <h5 class="font-bold text-gray-900 leading-tight">Pengurus GOW</h5>
-                            <p class="text-xs text-gray-400">Kota Mojokerto (Gema Media)</p>
+                            <h5 class="font-bold text-gray-900 leading-tight text-sm md:text-base">Pengurus GOW</h5>
+                            <p class="text-[10px] md:text-xs text-gray-400">Kota Mojokerto (Gema Media)</p>
                         </div>
                     </div>
                 </div>
-                <div class="reveal delay-100 bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative flex flex-col justify-between">
+                <div class="reveal delay-100 bg-white p-6 md:p-8 rounded-[1.5rem] md:rounded-3xl shadow-sm border border-gray-100 relative flex flex-col justify-between">
                     <div>
-                        <i class="fas fa-quote-right text-4xl text-eco-light absolute top-6 right-6"></i>
-                        <p class="text-gray-600 italic mb-8 relative z-10">"Kami menggunakannya sebagai pembersih rumah tangga harian, mencuci sayur dari residu pestisida, dan bahkan ikut digunakan untuk membantu menjernihkan genangan air saat wilayah kami terkena banjir."</p>
+                        <i class="fas fa-quote-right text-3xl md:text-4xl text-eco-light absolute top-6 right-6"></i>
+                        <p class="text-gray-600 italic mb-6 md:mb-8 relative z-10 text-sm md:text-base">"Kami menggunakannya sebagai pembersih rumah tangga harian, mencuci sayur dari residu pestisida, dan bahkan ikut digunakan untuk membantu menjernihkan genangan air saat wilayah kami terkena banjir."</p>
                     </div>
-                    <div class="flex items-center gap-4 mt-auto">
-                        <div class="w-12 h-12 rounded-full bg-eco-light text-eco-primary flex items-center justify-center font-black shrink-0">K</div>
+                    <div class="flex items-center gap-3 md:gap-4 mt-auto">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-eco-light text-eco-primary flex items-center justify-center font-black shrink-0 text-sm md:text-base">K</div>
                         <div>
-                            <h5 class="font-bold text-gray-900 leading-tight">Warga Desa Gondangmanis</h5>
-                            <p class="text-xs text-gray-400">Kudus (Jurnal PRIMA UNS)</p>
+                            <h5 class="font-bold text-gray-900 leading-tight text-sm md:text-base">Warga Desa Gondangmanis</h5>
+                            <p class="text-[10px] md:text-xs text-gray-400">Kudus (Jurnal PRIMA UNS)</p>
                         </div>
                     </div>
                 </div>
-                <div class="reveal delay-200 bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative flex flex-col justify-between">
+                <div class="reveal delay-200 bg-white p-6 md:p-8 rounded-[1.5rem] md:rounded-3xl shadow-sm border border-gray-100 relative flex flex-col justify-between">
                     <div>
-                        <i class="fas fa-quote-right text-4xl text-eco-light absolute top-6 right-6"></i>
-                        <p class="text-gray-600 italic mb-8 relative z-10">"Pembuatan eco-enzyme secara kolektif tidak hanya menekan volume limbah organik yang dibuang ke sungai, tapi juga membuka peluang ekonomi kreatif baru dari penjualan produk pembersih ramah lingkungan."</p>
+                        <i class="fas fa-quote-right text-3xl md:text-4xl text-eco-light absolute top-6 right-6"></i>
+                        <p class="text-gray-600 italic mb-6 md:mb-8 relative z-10 text-sm md:text-base">"Pembuatan eco-enzyme secara kolektif tidak hanya menekan volume limbah organik yang dibuang ke sungai, tapi juga membuka peluang ekonomi kreatif baru dari penjualan produk pembersih ramah lingkungan."</p>
                     </div>
-                    <div class="flex items-center gap-4 mt-auto">
-                        <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-black shrink-0">R</div>
+                    <div class="flex items-center gap-3 md:gap-4 mt-auto">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-black shrink-0 text-sm md:text-base">R</div>
                         <div>
-                            <h5 class="font-bold text-gray-900 leading-tight">Ibu-ibu Rumah Tangga</h5>
-                            <p class="text-xs text-gray-400">Desa Ralleanak (Jurnal Abdimas)</p>
+                            <h5 class="font-bold text-gray-900 leading-tight text-sm md:text-base">Ibu-ibu Rumah Tangga</h5>
+                            <p class="text-[10px] md:text-xs text-gray-400">Desa Ralleanak (Jurnal Abdimas)</p>
                         </div>
                     </div>
                 </div>
@@ -617,66 +615,66 @@
         </div>
     </section>
 
-    <section class="py-32 px-6 bg-[#fafafa] relative z-0 border-t border-gray-100">
+    <section class="py-20 md:py-32 px-4 md:px-6 bg-[#fafafa] relative z-0 border-t border-gray-100">
         <div class="max-w-4xl mx-auto">
-            <div class="reveal text-center mb-20">
-                <h2 class="text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-4">Tanya Jawab</h2>
-                <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">FAQ Interaktif</h3>
-                <p class="mt-6 text-gray-500 text-lg">Temukan solusi dari kendala yang paling sering dialami saat proses pembuatan eco-enzyme.</p>
+            <div class="reveal text-center mb-16 md:mb-20">
+                <h2 class="text-[10px] md:text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-3 md:mb-4">Tanya Jawab</h2>
+                <h3 class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight">FAQ Interaktif</h3>
+                <p class="mt-4 md:mt-6 text-gray-500 text-sm md:text-lg">Temukan solusi dari kendala yang paling sering dialami saat proses pembuatan eco-enzyme.</p>
             </div>
 
-            <div class="space-y-4">
-                <div class="reveal bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
-                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
-                        <span class="font-extrabold text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Bagaimana jika muncul belatung di dalam wadah fermentasi?</span>
-                        <div class="w-10 h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
-                            <i class="fas fa-chevron-down"></i>
+            <div class="space-y-3 md:space-y-4">
+                <div class="reveal bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
+                    <button class="w-full px-5 md:px-8 py-4 md:py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-extrabold text-sm md:text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Bagaimana jika muncul belatung di dalam wadah fermentasi?</span>
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
+                            <i class="fas fa-chevron-down text-xs md:text-base"></i>
                         </div>
                     </button>
                     <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50/50">
-                        <div class="px-8 pb-8 pt-2 text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
+                        <div class="px-5 md:px-8 pb-5 md:pb-8 pt-2 text-gray-600 text-xs md:text-base leading-relaxed border-t border-gray-100 mt-2">
                             Jangan panik. Belatung biasanya muncul karena wadah kurang rapat. Tambahkan segenggam gula merah, aduk rata, lalu tutup wadah serapat mungkin. Belatung akan terurai dengan sendirinya menjadi protein tambahan.
                         </div>
                     </div>
                 </div>
 
-                <div class="reveal delay-100 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
-                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
-                        <span class="font-extrabold text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Kenapa cairan saya berbau seperti got menyengat?</span>
-                        <div class="w-10 h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
-                            <i class="fas fa-chevron-down"></i>
+                <div class="reveal delay-100 bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
+                    <button class="w-full px-5 md:px-8 py-4 md:py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-extrabold text-sm md:text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Kenapa cairan saya berbau seperti got menyengat?</span>
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
+                            <i class="fas fa-chevron-down text-xs md:text-base"></i>
                         </div>
                     </button>
                     <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50/50">
-                        <div class="px-8 pb-8 pt-2 text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
+                        <div class="px-5 md:px-8 pb-5 md:pb-8 pt-2 text-gray-600 text-xs md:text-base leading-relaxed border-t border-gray-100 mt-2">
                             Bau got menandakan ada bahan organik berprotein tinggi (daging/lemak) yang ikut masuk, atau rasio gula kurang. Tambahkan gula merah sesuai takaran awal untuk memperbaiki pH fermentasi.
                         </div>
                     </div>
                 </div>
 
-                <div class="reveal delay-200 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
-                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
-                        <span class="font-extrabold text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Ada lapisan jamur putih di atas cairan, apakah gagal?</span>
-                        <div class="w-10 h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
-                            <i class="fas fa-chevron-down"></i>
+                <div class="reveal delay-200 bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
+                    <button class="w-full px-5 md:px-8 py-4 md:py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-extrabold text-sm md:text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Ada lapisan jamur putih di atas cairan, apakah gagal?</span>
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
+                            <i class="fas fa-chevron-down text-xs md:text-base"></i>
                         </div>
                     </button>
                     <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50/50">
-                        <div class="px-8 pb-8 pt-2 text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
+                        <div class="px-5 md:px-8 pb-5 md:pb-8 pt-2 text-gray-600 text-xs md:text-base leading-relaxed border-t border-gray-100 mt-2">
                             Sebaliknya, jamur putih (pitera) menandakan proses fermentasi berjalan sangat baik. Berhati-hatilah jika yang muncul adalah jamur hitam/hijau; jika terjadi, periksa kerapatan wadah.
                         </div>
                     </div>
                 </div>
 
-                <div class="reveal delay-300 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
-                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
-                        <span class="font-extrabold text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Bolehkah saya menggunakan botol kaca?</span>
-                        <div class="w-10 h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
-                            <i class="fas fa-chevron-down"></i>
+                <div class="reveal delay-300 bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
+                    <button class="w-full px-5 md:px-8 py-4 md:py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-extrabold text-sm md:text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Bolehkah saya menggunakan botol kaca?</span>
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
+                            <i class="fas fa-chevron-down text-xs md:text-base"></i>
                         </div>
                     </button>
                     <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50/50">
-                        <div class="px-8 pb-8 pt-2 text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
+                        <div class="px-5 md:px-8 pb-5 md:pb-8 pt-2 text-gray-600 text-xs md:text-base leading-relaxed border-t border-gray-100 mt-2">
                             Sangat tidak disarankan. Fermentasi menghasilkan gas kuat di bulan pertama. Wadah kaca tidak bisa memuai dan berisiko meledak akibat tekanan gas. Gunakan selalu wadah plastik lentur.
                         </div>
                     </div>
@@ -685,20 +683,20 @@
         </div>
     </section>
 
-    <section class="py-24 px-6 mt-[-2rem] relative z-20">
-        <div class="max-w-5xl mx-auto bg-gradient-to-br from-eco-primary to-eco-dark rounded-[3rem] p-12 md:p-20 text-center text-white shadow-2xl relative overflow-hidden">
-            <div class="absolute -top-20 -right-20 w-64 h-64 bg-eco-lime/20 rounded-full blur-[50px]"></div>
-            <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-white/10 rounded-full blur-[40px]"></div>
+    <section class="py-20 md:py-24 px-4 md:px-6 mt-[-2rem] relative z-20">
+        <div class="max-w-5xl mx-auto bg-gradient-to-br from-eco-primary to-eco-dark rounded-[2rem] md:rounded-[3rem] p-8 md:p-20 text-center text-white shadow-2xl relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 md:-top-20 md:-right-20 w-40 h-40 md:w-64 md:h-64 bg-eco-lime/20 rounded-full blur-[30px] md:blur-[50px]"></div>
+            <div class="absolute -bottom-10 -left-10 md:-bottom-20 md:-left-20 w-40 h-40 md:w-64 md:h-64 bg-white/10 rounded-full blur-[20px] md:blur-[40px]"></div>
 
             <div class="relative z-10">
-                <h2 class="text-4xl md:text-6xl font-black mb-6 leading-tight">Siap Untuk Mulai <br>Langkah Pertamamu?</h2>
-                <p class="text-white/80 text-lg md:text-xl font-medium mb-12 max-w-2xl mx-auto">Tindakan kecilmu di rumah memiliki dampak besar bagi lingkungan sekitar.</p>
+                <h2 class="text-3xl sm:text-4xl md:text-6xl font-black mb-4 md:mb-6 leading-tight">Siap Untuk Mulai <br class="hidden md:block">Langkah Pertamamu?</h2>
+                <p class="text-white/80 text-sm md:text-xl font-medium mb-8 md:mb-12 max-w-2xl mx-auto">Tindakan kecilmu di rumah memiliki dampak besar bagi lingkungan sekitar.</p>
                 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <button class="w-full sm:w-auto bg-eco-lime text-eco-dark px-10 py-5 rounded-full text-lg font-extrabold hover:bg-white transition-all shadow-[0_10px_20px_rgba(217,249,157,0.3)] hover:scale-105">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
+                    <button class="w-full sm:w-auto bg-eco-lime text-eco-dark px-6 md:px-10 py-4 md:py-5 rounded-full text-base md:text-lg font-extrabold hover:bg-white transition-all shadow-[0_10px_20px_rgba(217,249,157,0.3)] hover:scale-105">
                         Daftar Sebagai Relawan
                     </button>
-                    <button class="w-full sm:w-auto bg-white/10 border border-white/20 backdrop-blur-md text-white px-10 py-5 rounded-full text-lg font-extrabold hover:bg-white/20 transition-all">
+                    <button class="w-full sm:w-auto bg-white/10 border border-white/20 backdrop-blur-md text-white px-6 md:px-10 py-4 md:py-5 rounded-full text-base md:text-lg font-extrabold hover:bg-white/20 transition-all">
                         Hubungi Tim Bojongsantos
                     </button>
                 </div>
@@ -706,30 +704,46 @@
         </div>
     </section>
 
-    <footer class="pt-20 pb-10 px-6 bg-[#fafafa] text-center border-t border-gray-100">
+    <footer class="pt-16 md:pt-20 pb-8 md:pb-10 px-6 bg-[#fafafa] text-center border-t border-gray-100">
         <div class="max-w-7xl mx-auto">
-            <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-eco-primary to-eco-lime flex items-center justify-center text-eco-dark mx-auto mb-6">
-                <i class="fas fa-leaf text-xl"></i>
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-tr from-eco-primary to-eco-lime flex items-center justify-center text-eco-dark mx-auto mb-4 md:mb-6">
+                <i class="fas fa-leaf text-lg md:text-xl"></i>
             </div>
-            <h3 class="font-extrabold text-2xl text-gray-900 mb-2">Bojongsantos Project</h3>
-            <p class="text-gray-400 text-sm mb-12">Membangun kesadaran lingkungan, satu langkah kecil setiap harinya.</p>
+            <h3 class="font-extrabold text-xl md:text-2xl text-gray-900 mb-2">Bojongsantos Project</h3>
+            <p class="text-gray-400 text-xs md:text-sm mb-8 md:mb-12">Membangun kesadaran lingkungan, satu langkah kecil setiap harinya.</p>
             
-            <p class="text-gray-400 text-[10px] font-bold uppercase tracking-widest">
+            <p class="text-gray-400 text-[8px] md:text-[10px] font-bold uppercase tracking-widest">
                 © 2026 Bojongsantos Project, All Rights Reserved.<br>S1 Sistem Informasi, Telkom University
             </p>
         </div>
     </footer>
 
     <script>
+        // Hamburger Menu Logic untuk Mobile
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+            
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
         // Navbar Scrolled Effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                navbar.classList.add('bg-eco-dark/90', 'backdrop-blur-md', 'shadow-sm', 'py-4');
-                navbar.classList.remove('py-6');
+                navbar.classList.add('bg-eco-dark/95', 'backdrop-blur-xl', 'shadow-md');
             } else {
-                navbar.classList.remove('bg-eco-dark/90', 'backdrop-blur-md', 'shadow-sm', 'py-4');
-                navbar.classList.add('py-6');
+                navbar.classList.remove('bg-eco-dark/95', 'backdrop-blur-xl', 'shadow-md');
             }
         });
 
@@ -754,11 +768,7 @@
             const airResult = document.getElementById('airResult');
 
             if (volInput > 0) {
-                // Sisa ruang 20%
                 const volumeEfektif = volInput * 0.8; 
-                
-                // Rasio 1:3:10. Total bagian = 14
-                // 1 Liter = 1000 gram/ml acuan
                 const totalGram = volumeEfektif * 1000;
                 
                 const gula = (totalGram / 14) * 1;
