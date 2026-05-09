@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +10,25 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
                     colors: {
-                        'eco-dark': '#064e3b',
+                        'eco-dark': '#022c22',    
                         'eco-primary': '#059669',
                         'eco-accent': '#10b981',
                         'eco-light': '#ecfdf5',
+                        'eco-lime': '#d9f99d',    
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
                     }
                 }
             }
@@ -22,211 +36,408 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .hero-brick { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1591193022659-1200be9db201?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; }
+        
+        body { 
+            overflow-x: hidden;
+            background-color: #fafafa;
+        }
+
+        .hero-brick { 
+            background: linear-gradient(to bottom, rgba(2, 44, 34, 0.7), rgba(2, 44, 34, 0.9)), 
+                        url('img/ecobrick/ecobrick.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #10b981; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #059669; }
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        .reveal-left { opacity: 0; transform: translateX(-30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-left.active { opacity: 1; transform: translateX(0); }
+        
+        .reveal-right { opacity: 0; transform: translateX(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-right.active { opacity: 1; transform: translateX(0); }
+        
+        .reveal-scale { opacity: 0; transform: scale(0.95); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-scale.active { opacity: 1; transform: scale(1); }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
     </style>
 </head>
-<body class="bg-white text-gray-900">
+<body class="text-gray-900 antialiased selection:bg-eco-accent selection:text-white">
 
-    <!-- Top Navigation -->
-    <nav class="absolute top-0 w-full z-50 px-6 py-6 md:px-12">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <div class="text-white font-bold text-xl tracking-tight">Bojongsantos Project</div>
-            <div class="hidden md:flex items-center space-x-8 text-white text-xs font-bold uppercase tracking-widest">
-                <a href="index.html" class="hover:text-eco-accent transition-colors">Beranda</a>
-                <a href="ecobrick.html" class="hover:text-eco-accent border-b-2 border-eco-accent pb-1 transition-colors">Ecobrick</a>
-                <a href="ecoenzym.html" class="hover:text-eco-accent transition-colors">Ecoenzym</a>
+    <div class="fixed top-[-5%] left-[-10%] w-72 h-72 md:w-96 md:h-96 bg-eco-accent/20 rounded-full mix-blend-multiply filter blur-[80px] md:blur-[100px] opacity-50 animate-pulse-slow z-[-1] pointer-events-none"></div>
+    <div class="fixed bottom-[-5%] right-[-10%] w-72 h-72 md:w-96 md:h-96 bg-blue-400/20 rounded-full mix-blend-multiply filter blur-[80px] md:blur-[100px] opacity-50 animate-pulse-slow delay-75 z-[-1] pointer-events-none"></div>
+
+    <nav class="fixed top-0 w-full z-[100] px-6 py-6 md:px-12 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto flex items-center justify-between relative">
+            <div class="text-white font-extrabold text-2xl tracking-tighter flex items-center gap-2">
+                <img src="img/Logo/contoh1onlyLogo-Photoroom.png" alt="Logo" class="w-10 h-10 object-contain">
+                Bojongsantos
             </div>
+            
+            <div class="hidden md:flex items-center space-x-10 text-white text-xs font-bold uppercase tracking-[0.2em]">
+                <a href="index.html" class="hover:text-eco-lime transition-colors">Beranda</a>
+                <a href="ecobrick.html" class="text-eco-lime relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-eco-lime">Ecobrick</a>
+                <a href="ecoenzym.html" class="hover:text-eco-lime transition-colors">Ecoenzym</a>
+            </div>
+
+            <button id="mobileMenuBtn" class="md:hidden text-white text-2xl focus:outline-none p-2">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-eco-dark/95 backdrop-blur-xl flex-col items-center py-6 space-y-6 border-b border-white/10 shadow-2xl transition-all origin-top">
+            <a href="index.html" class="text-white font-bold uppercase tracking-widest text-sm hover:text-eco-lime">Beranda</a>
+            <a href="ecobrick.html" class="text-eco-lime font-bold uppercase tracking-widest text-sm border-b border-eco-lime pb-1">Ecobrick</a>
+            <a href="ecoenzym.html" class="text-white font-bold uppercase tracking-widest text-sm hover:text-eco-lime">Ecoenzym</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero-brick h-[80vh] flex items-center justify-center text-center px-6 relative">
-        <div class="max-w-4xl pt-20 text-white">
-            <div class="inline-block bg-blue-400/20 backdrop-blur-md text-white text-xs font-bold px-6 py-2 rounded-full mb-8 border border-white/30 uppercase">
+    <header class="hero-brick min-h-screen flex items-center justify-center px-4 md:px-6 relative overflow-hidden">
+        <div class="max-w-5xl pt-24 md:pt-20 text-center relative z-10">
+            <div class="reveal active inline-flex items-center gap-2 glass text-white text-[10px] md:text-xs font-bold px-4 md:px-6 py-2 md:py-3 rounded-full mb-6 md:mb-8 uppercase tracking-widest shadow-2xl">
+                <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
                 Solusi Sampah Anorganik
             </div>
-            <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight">
-                Eco-Brick: Solusi .....
+            <h1 class="reveal active delay-100 text-5xl sm:text-6xl md:text-8xl font-extrabold text-white mb-6 md:mb-8 leading-[1.1] tracking-tight">
+                Ubah Plastik Jadi <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-eco-accent">Eco-Brick</span>
             </h1>
-            <p class="text-white/80 text-sm md:text-xl font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
-                Mengubah sampah dapur menjadi cairan yang bermanfaat untuk lingkungan.
+            <p class="reveal active delay-200 text-white/80 text-base md:text-2xl font-medium mb-10 md:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
+                Mengubah sampah plastik menjadi material padat bermanfaat untuk masa depan bumi yang lebih hijau.
             </p>
-            <div class="flex items-center justify-center space-x-12">
+            <div class="reveal active delay-300 grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto border-t border-white/10 pt-10">
                 <div class="text-center">
-                    <i class="fas fa-user text-3xl mb-4"></i>
-                    <h4 class="text-5xl font-black">50</h4>
-                    <p class="text-[10px] font-black uppercase tracking-widest text-white/50">Warga telah berpartisipasi</p>
+                    <h4 class="text-4xl md:text-6xl font-black text-white">50+</h4>
+                    <p class="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-white/50 mt-2">Warga Terlibat</p>
                 </div>
                 <div class="text-center">
-                    <h4 class="text-5xl font-black">20 <span class="text-xl">kg</span></h4>
-                    <p class="text-[10px] font-black uppercase tracking-widest text-white/50">Sampah Plastik Dikelola</p>
+                    <h4 class="text-4xl md:text-6xl font-black text-white">20<span class="text-xl md:text-2xl">kg</span></h4>
+                    <p class="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-white/50 mt-2">Plastik Dikelola</p>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Masalah Sampah Section -->
-    <section class="py-24 px-6 max-w-7xl mx-auto text-center">
-        <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Masalah Sampah Anorganik</h2>
-        <p class="text-gray-400 font-medium mb-16">Berbagai tantangan lingkungan yang dihadapi masyarakat Desa X</p>
+    <section id="masalah" class="py-20 md:py-32 px-6 max-w-7xl mx-auto relative">
+        <div class="reveal text-center max-w-3xl mx-auto mb-16 md:mb-20">
+            <h2 class="text-[10px] md:text-xs font-black text-blue-500 uppercase tracking-[0.3em] mb-3 md:mb-4">Tantangan Kita</h2>
+            <h3 class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Masalah Sampah Anorganik</h3>
+            <p class="mt-4 md:mt-6 text-gray-500 text-base md:text-lg">Plastik yang kita buang hari ini akan bertahan hingga ratusan tahun jika tidak dikelola dengan benar.</p>
+        </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
-            <div class="bg-[#eef2f1] p-10 rounded-3xl">
-                <div class="w-12 h-12 bg-eco-dark rounded-xl mb-8"></div>
-                <h3 class="font-bold text-lg mb-2">Sungai Kotor</h3>
-                <p class="text-gray-500 text-sm">Limbah anorganik mencemari air sungai</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="reveal bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(59,130,246,0.1)] hover:-translate-y-2 transition-all duration-500 group border border-gray-100">
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-2xl mb-6 md:mb-8 flex items-center justify-center text-blue-500 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all duration-500">
+                    <i class="fas fa-trash-can text-lg md:text-xl"></i>
+                </div>
+                <h4 class="font-extrabold text-lg md:text-xl mb-2 md:mb-3 text-gray-900">Sampah Menumpuk</h4>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed">Limbah plastik terus bertambah setiap hari tanpa pengelolaan yang tepat.</p>
             </div>
-            <div class="bg-[#eef2f1] p-10 rounded-3xl">
-                <div class="w-12 h-12 bg-eco-dark rounded-xl mb-8"></div>
-                <h3 class="font-bold text-lg mb-2">Sampah Menumpuk</h3>
-                <p class="text-gray-500 text-sm">Limbah plastik terus bertambah setiap hari</p>
+            <div class="reveal delay-100 bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(59,130,246,0.1)] hover:-translate-y-2 transition-all duration-500 group border border-gray-100">
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-2xl mb-6 md:mb-8 flex items-center justify-center text-blue-500 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all duration-500">
+                    <i class="fas fa-hourglass-half text-lg md:text-xl"></i>
+                </div>
+                <h4 class="font-extrabold text-lg md:text-xl mb-2 md:mb-3 text-gray-900">Sulit Terurai</h4>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed">Plastik membutuhkan waktu ratusan tahun untuk bisa terurai secara alami.</p>
             </div>
-            <div class="bg-[#eef2f1] p-10 rounded-3xl">
-                <div class="w-12 h-12 bg-eco-dark rounded-xl mb-8"></div>
-                <h3 class="font-bold text-lg mb-2">Sulit Terurai</h3>
-                <p class="text-gray-500 text-sm">Sampah plastik butuh ratusan tahun untuk terurai</p>
+            <div class="reveal delay-200 bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(59,130,246,0.1)] hover:-translate-y-2 transition-all duration-500 group border border-gray-100">
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-2xl mb-6 md:mb-8 flex items-center justify-center text-blue-500 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all duration-500">
+                    <i class="fas fa-water text-lg md:text-xl"></i>
+                </div>
+                <h4 class="font-extrabold text-lg md:text-xl mb-2 md:mb-3 text-gray-900">Sungai Kotor</h4>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed">Limbah anorganik yang hanyut mencemari ekosistem air dan biota sungai.</p>
             </div>
-            <div class="bg-[#eef2f1] p-10 rounded-3xl">
-                <div class="w-12 h-12 bg-eco-dark rounded-xl mb-8"></div>
-                <h3 class="font-bold text-lg mb-2">Saluran Air Tersumbat</h3>
-                <p class="text-gray-500 text-sm">Dapat menyebabkan banjir</p>
+            <div class="reveal delay-300 bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(59,130,246,0.1)] hover:-translate-y-2 transition-all duration-500 group border border-gray-100">
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-2xl mb-6 md:mb-8 flex items-center justify-center text-blue-500 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all duration-500">
+                    <i class="fas fa-cloud-showers-heavy text-lg md:text-xl"></i>
+                </div>
+                <h4 class="font-extrabold text-lg md:text-xl mb-2 md:mb-3 text-gray-900">Risiko Banjir</h4>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed">Sampah plastik yang menyumbat drainase memicu banjir saat hujan tiba.</p>
             </div>
         </div>
     </section>
 
-    <!-- Apa itu Section -->
-    <section class="py-24 px-6 bg-eco-light/30">
+    <section class="py-20 md:py-32 bg-eco-dark text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-full md:w-1/2 h-1/2 md:h-full bg-gradient-to-b md:bg-gradient-to-l from-blue-500/20 to-transparent"></div>
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 md:gap-16 px-6 relative z-10">
+            <div class="w-full lg:w-1/2 reveal-left">
+                <h2 class="text-[10px] md:text-xs font-black text-blue-400 uppercase tracking-[0.3em] mb-3 md:mb-4">Definisi</h2>
+                <h3 class="text-3xl md:text-5xl font-extrabold mb-6 md:mb-8 leading-tight tracking-tight">Apa Itu <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">Eco-Brick?</span></h3>
+                <p class="text-white/70 text-base md:text-lg leading-relaxed mb-10">
+                    <strong class="text-white italic">Ecobrick</strong> adalah metode pengelolaan sampah plastik dengan cara memasukkan sampah plastik non-organik ke dalam botol plastik hingga padat dan keras, membentuk "bata" ramah lingkungan.
+                </p>
+
+                <h4 class="text-xl font-bold mb-6 text-blue-400">Mengapa Eco-Brick?</h4>
+                <div class="flex flex-col gap-4">
+                    <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
+                        <div class="w-10 h-10 rounded-full bg-blue-400/20 flex items-center justify-center text-blue-400 shrink-0">
+                            <i class="fas fa-wallet text-sm"></i>
+                        </div>
+                        <p class="font-semibold text-sm">Mudah dan Murah</p>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
+                        <div class="w-10 h-10 rounded-full bg-blue-400/20 flex items-center justify-center text-blue-400 shrink-0">
+                            <i class="fas fa-shield-heart text-sm"></i>
+                        </div>
+                        <p class="font-semibold text-sm">Tahan Lama</p>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
+                        <div class="w-10 h-10 rounded-full bg-blue-400/20 flex items-center justify-center text-blue-400 shrink-0">
+                            <i class="fas fa-droplet text-sm"></i>
+                        </div>
+                        <p class="font-semibold text-sm">Tahan Air</p>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
+                        <img src="img/Logo/contoh1onlyLogo-Photoroom.png" alt="Logo" class="w-10 h-10 object-contain">
+                        <p class="font-semibold text-sm">Mengurangi Pencemaran Lingkungan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 reveal-scale">
+                <div class="relative rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl group aspect-video">
+                    <div class="absolute inset-0 bg-eco-dark/20 group-hover:bg-transparent transition-all duration-500 z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Ecobrick Bottles" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 md:py-32 px-6 max-w-7xl mx-auto">
+        <div class="reveal text-center max-w-3xl mx-auto mb-16 md:mb-20">
+            <h2 class="text-[10px] md:text-xs font-black text-blue-500 uppercase tracking-[0.3em] mb-3 md:mb-4">Persiapan</h2>
+            <h3 class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Alat & Bahan</h3>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="reveal bg-white rounded-[2rem] overflow-hidden shadow-lg group border border-gray-50">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="img/ecobrick/botolPET.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Botol Plastik">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-black text-lg mb-2 text-gray-900">Botol Plastik PET</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">Botol bekas yang bersih, kering, dan ukurannya seragam.</p>
+                </div>
+            </div>
+            <div class="reveal delay-100 bg-white rounded-[2rem] overflow-hidden shadow-lg group border border-gray-50">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="img/ecobrick/sampahplastik.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Sampah Plastik">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-black text-lg mb-2 text-gray-900">Sampah Plastik</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">Plastik kemasan makanan, deterjen, atau kresek kering.</p>
+                </div>
+            </div>
+            <div class="reveal delay-200 bg-white rounded-[2rem] overflow-hidden shadow-lg group border border-gray-50">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="img/ecobrick/tongkatpemadat.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Tongkat Pemadat">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-black text-lg mb-2 text-gray-900">Tongkat Pemadat</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">Kayu atau bambu panjang untuk memadatkan plastik.</p>
+                </div>
+            </div>
+            <div class="reveal delay-300 bg-white rounded-[2rem] overflow-hidden shadow-lg group border border-gray-50">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="img/ecobrick/gunting.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Gunting">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-black text-lg mb-2 text-gray-900">Gunting</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">Untuk memotong plastik menjadi ukuran lebih kecil.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 md:py-32 px-6 bg-white relative">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6">Apa itu <span class="text-eco-primary">Eco-Brick</span>?</h2>
-            <p class="text-gray-500 text-base md:text-xl leading-relaxed mb-10">
-                <span class="font-black text-gray-900 italic">Ecobrick</span> adalah metode pengelolaan sampah plastik dengan cara memasukkan sampah plastik non-organik ke dalam botol plastik hingga padat dan keras, sehingga membentuk "bata" yang dapat dimanfaatkan kembali.
-            </p>
+            <div class="reveal text-center max-w-3xl mx-auto mb-16 md:mb-24">
+                <h2 class="text-[10px] md:text-xs font-black text-blue-500 uppercase tracking-[0.3em] mb-3 md:mb-4">Tutorial</h2>
+                <h3 class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Langkah Pembuatan</h3>
+            </div>
             
-            <h3 class="text-2xl font-black mb-8">Mengapa eco-brick?</h3>
-            <ul class="space-y-4 mb-16">
-                <li class="flex items-center space-x-4 text-gray-900 font-bold"><i class="far fa-circle-check text-eco-primary text-xl"></i><span>Mudah dan Murah</span></li>
-                <li class="flex items-center space-x-4 text-gray-900 font-bold"><i class="far fa-circle-check text-eco-primary text-xl"></i><span>Tahan Lama</span></li>
-                <li class="flex items-center space-x-4 text-gray-900 font-bold"><i class="far fa-circle-check text-eco-primary text-xl"></i><span>Tahan Air</span></li>
-                <li class="flex items-center space-x-4 text-gray-900 font-bold"><i class="far fa-circle-check text-eco-primary text-xl"></i><span>Mengurangi Pencemaran Lingkungan</span></li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Manfaat Section -->
-    <section class="py-24 px-6 text-center max-w-7xl mx-auto">
-        <h2 class="text-4xl md:text-6xl font-black mb-16">Manfaat</h2>
-        <div class="bg-gray-100 h-96 rounded-[3rem] flex items-center justify-center text-gray-400 font-bold">
-            [Visual Representasi Manfaat]
-        </div>
-    </section>
-
-    <!-- Alat Bahan Section -->
-    <section class="py-24 px-6 bg-white max-w-7xl mx-auto">
-        <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 text-center mb-4">Alat dan Bahan yang Digunakan</h2>
-        <p class="text-gray-400 font-medium text-center mb-16">Berbagai tantangan lingkungan yang dihadapi masyarakat Desa X</p>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="text-center">
-                <div class="bg-gray-100 rounded-3xl h-48 mb-6"></div>
-                <h4 class="font-black text-lg">Botol plastik bekas (PET)</h4>
-                <p class="text-xs text-gray-400">Gunakan botol bekas yang bersih, kering, dan ukurannya seragam</p>
-            </div>
-            <div class="text-center">
-                <div class="bg-gray-100 rounded-3xl h-48 mb-6"></div>
-                <h4 class="font-black text-lg">Sampah Plastik Kering</h4>
-                <p class="text-xs text-gray-400">Dapat berupa plastik kemasan makanan, deterjen, kantong kresek, plastik paket</p>
-            </div>
-            <div class="text-center">
-                <div class="bg-gray-100 rounded-3xl h-48 mb-6"></div>
-                <h4 class="font-black text-lg">Tongkat Pemadat</h4>
-                <p class="text-xs text-gray-400">Tongkat kayu atau bambu yang cukup panjang untuk memadatkan plastik ke dasar botol</p>
-            </div>
-            <div class="text-center">
-                <div class="bg-gray-100 rounded-3xl h-48 mb-6"></div>
-                <h4 class="font-black text-lg">Gunting</h4>
-                <p class="text-xs text-gray-400">Untuk memotong sampah plastik menjadi ukuran lebih kecil agar mudah dimasukkan</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Langkah Section -->
-    <section class="py-24 px-6 max-w-5xl mx-auto">
-        <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 text-center mb-4">Langkah Pembuatan Eco-Brick</h2>
-        <p class="text-gray-400 font-medium text-center mb-16">Berbagai tantangan lingkungan yang dihadapi masyarakat Desa X</p>
-        
-        <div class="space-y-4">
-            <div class="flex items-center space-x-6 p-8 bg-[#eefaf4] rounded-3xl">
-                <div class="w-16 h-16 bg-eco-dark text-white rounded-2xl flex items-center justify-center text-2xl font-black shrink-0">1</div>
-                <div>
-                    <h4 class="font-black text-xl mb-1">Kumpulkan, bersihkan, dan keringkan botol plastik dan sampah plastik</h4>
-                    <p class="text-gray-500 text-sm">Sampah botol plastik dibersihkan agar tidak menimbulkan jamur dan bakteri</p>
+            <div class="space-y-6">
+                <div class="reveal flex items-center gap-6 p-6 md:p-8 bg-blue-50/50 rounded-[2rem] border border-blue-100 group hover:bg-blue-50 transition-colors">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 text-white rounded-2xl flex items-center justify-center text-xl md:text-2xl font-black shrink-0 shadow-lg shadow-blue-500/20">1</div>
+                    <p class="text-gray-700 font-bold text-sm md:text-lg">Kumpulkan, bersihkan, dan keringkan botol serta sampah plastik Anda.</p>
                 </div>
-            </div>
-            <div class="flex items-center space-x-6 p-8 bg-[#eefaf4] rounded-3xl">
-                <div class="w-16 h-16 bg-eco-dark text-white rounded-2xl flex items-center justify-center text-2xl font-black shrink-0">2</div>
-                <div>
-                    <h4 class="font-black text-xl mb-1">Mulai isi botol dengan sampah plastik</h4>
-                    <p class="text-gray-500 text-sm">Jika terdapat sampah plastik yang berukuran besar, maka gunakan gunting untuk memotong menjadi ukuran kecil-kecil.</p>
+                <div class="reveal delay-100 flex items-center gap-6 p-6 md:p-8 bg-blue-50/50 rounded-[2rem] border border-blue-100 group hover:bg-blue-50 transition-colors">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 text-white rounded-2xl flex items-center justify-center text-xl md:text-2xl font-black shrink-0 shadow-lg shadow-blue-500/20">2</div>
+                    <p class="text-gray-700 font-bold text-sm md:text-lg">Potong plastik besar menjadi ukuran kecil agar mudah dimasukkan.</p>
                 </div>
-            </div>
-            <div class="flex items-center space-x-6 p-8 bg-[#eefaf4] rounded-3xl">
-                <div class="w-16 h-16 bg-eco-dark text-white rounded-2xl flex items-center justify-center text-2xl font-black shrink-0">3</div>
-                <div>
-                    <h4 class="font-black text-xl mb-1">Dorong dan padatkan sampah ke dalam botol plastik</h4>
-                    <p class="text-gray-500 text-sm">Gunakan bantuan tongkat kecil untuk mendorongnya</p>
+                <div class="reveal delay-200 flex items-center gap-6 p-6 md:p-8 bg-blue-50/50 rounded-[2rem] border border-blue-100 group hover:bg-blue-50 transition-colors">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 text-white rounded-2xl flex items-center justify-center text-xl md:text-2xl font-black shrink-0 shadow-lg shadow-blue-500/20">3</div>
+                    <p class="text-gray-700 font-bold text-sm md:text-lg">Dorong dan padatkan sampah ke dalam botol menggunakan tongkat.</p>
                 </div>
-            </div>
-            <div class="flex items-center space-x-6 p-8 bg-[#eefaf4] rounded-3xl">
-                <div class="w-16 h-16 bg-eco-dark text-white rounded-2xl flex items-center justify-center text-2xl font-black shrink-0">4</div>
-                <div>
-                    <h4 class="font-black text-xl mb-1">Pastikan botol tertutup dengan rapat untuk memastikan sampah dipadatkan dengan benar</h4>
-                    <p class="text-gray-500 text-sm">Gunakan bantuan tongkat kecil untuk mendorongnya</p>
+                <div class="reveal delay-300 flex items-center gap-6 p-6 md:p-8 bg-blue-50/50 rounded-[2rem] border border-blue-100 group hover:bg-blue-50 transition-colors">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 text-white rounded-2xl flex items-center justify-center text-xl md:text-2xl font-black shrink-0 shadow-lg shadow-blue-500/20">4</div>
+                    <p class="text-gray-700 font-bold text-sm md:text-lg">Tutup botol rapat-rapat setelah plastik benar-benar padat dan keras.</p>
                 </div>
-            </div>
-            <div class="flex items-center space-x-6 p-8 bg-[#eefaf4] rounded-3xl">
-                <div class="w-16 h-16 bg-eco-dark text-white rounded-2xl flex items-center justify-center text-2xl font-black shrink-0">5</div>
-                <div>
-                    <h4 class="font-black text-xl mb-1">Tekan atau peras botol dengan tangan Anda untuk memeriksa kepadatan ecobrick tersebut</h4>
-                    <p class="text-gray-500 text-sm">Ecobrick yang bagus dan padat tidak akan mengempis dan mengeluarkan suara</p>
-                </div>
-            </div>
-            <div class="flex items-center space-x-6 p-8 bg-[#eefaf4] rounded-3xl">
-                <div class="w-16 h-16 bg-eco-dark text-white rounded-2xl flex items-center justify-center text-2xl font-black shrink-0">6</div>
-                <div>
-                    <h4 class="font-black text-xl mb-1">Ecobrick sekarang siap untuk digunakan</h4>
+                <div class="reveal delay-300 flex items-center gap-6 p-6 md:p-8 bg-eco-dark text-white rounded-[2rem] shadow-xl group">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-400 text-white rounded-2xl flex items-center justify-center text-xl md:text-2xl font-black shrink-0">5</div>
+                    <p class="font-bold text-sm md:text-lg">Eco-brick siap digunakan sebagai bata ramah lingkungan!</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Impact Visual Section -->
-    <section class="py-24 px-6 text-center max-w-7xl mx-auto">
-        <h2 class="text-2xl font-black mb-2">See the impact</h2>
-        <p class="text-xs text-gray-400 mb-12 uppercase tracking-widest font-bold">Geser slider pada layar untuk melihat perubahan pada sampah plastik di lingkunganmu</p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-[600px]">
-            <div class="relative rounded-3xl overflow-hidden group">
-                <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
-                <div class="absolute top-6 left-6 bg-black/50 text-white text-[10px] font-black px-4 py-2 rounded-lg">Sebelum</div>
-            </div>
-            <div class="relative rounded-3xl overflow-hidden group">
-                <img src="https://images.unsplash.com/photo-1591193022659-1200be9db201?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
-                <div class="absolute top-6 right-6 bg-white/50 text-gray-900 text-[10px] font-black px-4 py-2 rounded-lg">Sesudah</div>
+    <section class="py-20 md:py-32 px-6 bg-gray-50 border-y border-gray-100">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">Lihat Dampaknya</h2>
+            <p class="text-gray-400 font-medium mb-16 uppercase tracking-widest text-[10px] md:text-xs">Transformasi sampah plastik menjadi sesuatu yang kokoh</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 h-[400px] md:h-[600px]">
+                <div class="reveal-left relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl group">
+                    <img src="img/ecobrick/ecobricksebelum.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Sebelum">
+                    <div class="absolute top-6 left-6 bg-black/60 backdrop-blur-md text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest">Sebelum</div>
+                </div>
+                <div class="reveal-right relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl group">
+                    <img src="img/ecobrick/ecobricksesudah.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Sesudah">
+                    <div class="absolute top-6 right-6 bg-blue-500/80 backdrop-blur-md text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest">Sesudah</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-24 px-6 text-center max-w-4xl mx-auto">
-        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-12">Jadilah bagian dari kami untuk lingkungan yang lebih bersih!</h2>
-        <button class="bg-eco-primary text-white px-12 py-5 rounded-3xl text-lg font-black hover:bg-eco-dark transition-all">Isi Form Kontribusi</button>
+    <section class="py-20 md:py-24 px-4 md:px-6 mt-[-2rem] relative z-20">
+        <div class="max-w-5xl mx-auto bg-gradient-to-br from-blue-600 to-eco-dark rounded-[2rem] md:rounded-[3rem] p-8 md:p-20 text-center text-white shadow-2xl relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 md:-top-20 md:-right-20 w-40 h-40 md:w-64 md:h-64 bg-blue-400/20 rounded-full blur-[30px] md:blur-[50px]"></div>
+            <div class="absolute -bottom-10 -left-10 md:-bottom-20 md:-left-20 w-40 h-40 md:w-64 md:h-64 bg-white/10 rounded-full blur-[20px] md:blur-[40px]"></div>
+
+            <div class="relative z-10">
+                <h2 class="text-3xl sm:text-4xl md:text-6xl font-black mb-4 md:mb-6 leading-tight">Siap Untuk <br class="hidden md:block">Berdampak?</h2>
+                <p class="text-white/80 text-sm md:text-xl font-medium mb-8 md:mb-12 max-w-2xl mx-auto">Setiap botol eco-brick yang Anda buat menjauhkan ribuan gram plastik dari laut dan tanah kita.</p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
+                    <button class="w-full sm:w-auto bg-blue-400 text-white px-6 md:px-10 py-4 md:py-5 rounded-full text-base md:text-lg font-extrabold hover:bg-white hover:text-blue-600 transition-all shadow-xl hover:scale-105">
+                        Isi Form Kontribusi
+                    </button>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-12 px-6 bg-eco-dark border-t border-white/5 text-center text-white/40 text-[10px] font-bold uppercase tracking-widest">
-        @2026 Bojongsantos Project, All Rights Reserved<br>S1 Sistem Informasi Telkom University
+    <footer class="pt-16 md:pt-20 pb-8 md:pb-10 px-6 bg-[#fafafa] text-center border-t border-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <img src="img/Logo/contoh1onlyLogo-Photoroom.png" alt="Logo" class="w-32 h-32 object-contain mx-auto mb-6">
+            <h3 class="font-extrabold text-xl md:text-2xl text-gray-900 mb-2">Bojongsantos Project</h3>
+            <p class="text-gray-400 text-xs md:text-sm mb-8 md:mb-12">Membangun kesadaran lingkungan, satu langkah kecil setiap harinya.</p>
+            <p class="text-gray-400 text-[8px] md:text-[10px] font-bold uppercase tracking-widest">
+                © 2026 Bojongsantos Project, All Rights Reserved.<br>S1 Sistem Informasi, Telkom University
+            </p>
+        </div>
     </footer>
 
+    <!-- Scroll to Top Button (Hidden on Mobile) -->
+    <button id="scrollToTop" class="fixed bottom-8 right-8 z-[100] w-14 h-14 bg-gray-200 text-gray-800 rounded-full border border-white flex items-center justify-center hover:bg-white hover:scale-110 transition-all duration-500 opacity-0 pointer-events-none translate-y-10 shadow-2xl focus:outline-none hidden md:flex">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </button>
+
+    <script>
+        // Navbar Scrolled Effect & Scroll to Top Logic
+        const navbar = document.getElementById('navbar');
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            // Navbar effect
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-[#022c22]', 'shadow-lg', 'py-4');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('bg-[#022c22]', 'shadow-lg', 'py-4');
+                navbar.classList.add('py-6');
+            }
+
+            // Scroll to Top button visibility (Desktop only)
+            if (scrollToTopBtn) {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
+                    scrollToTopBtn.classList.add('opacity-100', 'translate-y-0');
+                } else {
+                    scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10');
+                    scrollToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+                }
+            }
+        });
+
+        // Smooth Scroll to Top
+        if (scrollToTopBtn) {
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+                
+                const icon = menuToggle.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            });
+        }
+
+        // Close menu on link click
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Intersection Observer for Reveal Animations
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
