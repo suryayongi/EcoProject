@@ -89,7 +89,7 @@
     <div class="fixed top-[-10%] left-[-10%] w-96 h-96 bg-eco-accent/20 rounded-full mix-blend-multiply filter blur-[100px] opacity-50 animate-pulse-slow z-[-1] pointer-events-none"></div>
     <div class="fixed bottom-[-10%] right-[-10%] w-96 h-96 bg-blue-400/20 rounded-full mix-blend-multiply filter blur-[100px] opacity-50 animate-pulse-slow delay-75 z-[-1] pointer-events-none"></div>
 
-    <nav class="absolute top-0 w-full z-50 px-6 py-6 md:px-12 transition-all duration-300" id="navbar">
+    <nav class="absolute top-0 w-full z-[100] px-6 py-6 md:px-12 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <div class="text-white font-extrabold text-2xl tracking-tighter flex items-center gap-2">
                 <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-eco-primary to-eco-lime flex items-center justify-center">
@@ -97,10 +97,61 @@
                 </div>
                 Bojongsantos
             </div>
+            
+            <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-10 text-white text-xs font-bold uppercase tracking-[0.2em]">
                 <a href="index.html" class="text-eco-lime relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-eco-lime">Beranda</a>
                 <a href="ecobrick.html" class="hover:text-eco-lime transition-colors">Ecobrick</a>
                 <a href="ecoenzym.html" class="hover:text-eco-lime transition-colors">Ecoenzym</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden text-white focus:outline-none w-10 h-10 flex items-center justify-center glass rounded-lg" id="menuToggle">
+                <i class="fas fa-bars text-xl" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div class="fixed inset-0 z-[150] md:hidden transition-all duration-500 opacity-0 pointer-events-none" id="mobileMenuContainer">
+            <!-- Backdrop (Dimmed background) -->
+            <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" id="menuBackdrop"></div>
+            
+            <!-- Drawer Content -->
+            <div class="absolute right-0 top-0 h-full w-[80%] max-w-xs bg-eco-dark shadow-2xl transition-transform duration-500 translate-x-full flex flex-col p-8" id="menuDrawer">
+                <div class="flex justify-between items-center mb-12">
+                    <div class="text-white font-black text-xl tracking-tight flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-eco-primary to-eco-lime flex items-center justify-center">
+                            <i class="fas fa-leaf text-eco-dark text-xs"></i>
+                        </div>
+                        Bojongsantos
+                    </div>
+                    <button class="text-white/50 hover:text-white transition-colors" id="closeMenu">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+
+                <div class="flex flex-col space-y-6">
+                    <a href="index.html" class="flex items-center justify-between group">
+                        <span class="text-eco-lime text-lg font-bold uppercase tracking-widest">Beranda</span>
+                        <i class="fas fa-chevron-right text-eco-lime text-xs"></i>
+                    </a>
+                    <a href="ecobrick.html" class="flex items-center justify-between group text-white/70 hover:text-white transition-colors">
+                        <span class="text-lg font-bold uppercase tracking-widest">Ecobrick</span>
+                        <i class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </a>
+                    <a href="ecoenzym.html" class="flex items-center justify-between group text-white/70 hover:text-white transition-colors">
+                        <span class="text-lg font-bold uppercase tracking-widest">Ecoenzym</span>
+                        <i class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </a>
+                </div>
+
+                <div class="mt-auto pt-10 border-t border-white/10">
+                    <p class="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mb-4">Social Media</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:bg-eco-lime hover:text-eco-dark transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:bg-eco-lime hover:text-eco-dark transition-all"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -531,6 +582,40 @@
                 icon.classList.add('bg-eco-primary', 'text-white');
             }
         }
+
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const menuBackdrop = document.getElementById('menuBackdrop');
+        const mobileMenuContainer = document.getElementById('mobileMenuContainer');
+        const menuDrawer = document.getElementById('menuDrawer');
+
+        function openMenu() {
+            mobileMenuContainer.classList.remove('opacity-0', 'pointer-events-none');
+            mobileMenuContainer.classList.add('opacity-100');
+            menuDrawer.classList.remove('translate-x-full');
+            menuDrawer.classList.add('translate-x-0');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenuFunc() {
+            menuDrawer.classList.remove('translate-x-0');
+            menuDrawer.classList.add('translate-x-full');
+            setTimeout(() => {
+                mobileMenuContainer.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenuContainer.classList.remove('opacity-100');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        if (menuToggle) menuToggle.addEventListener('click', openMenu);
+        if (closeMenu) closeMenu.addEventListener('click', closeMenuFunc);
+        if (menuBackdrop) menuBackdrop.addEventListener('click', closeMenuFunc);
+
+        // Close menu on link click
+        document.querySelectorAll('#menuDrawer a').forEach(link => {
+            link.addEventListener('click', closeMenuFunc);
+        });
     </script>
 </body>
 </html>
