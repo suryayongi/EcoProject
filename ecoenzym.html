@@ -14,11 +14,11 @@
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
                     },
                     colors: {
-                        'eco-dark': '#022c22',    /* Lebih gelap untuk kontras elegan */
+                        'eco-dark': '#022c22',
                         'eco-primary': '#059669',
                         'eco-accent': '#10b981',
                         'eco-light': '#ecfdf5',
-                        'eco-lime': '#d9f99d',    /* Warna pop untuk CTA/Aksen */
+                        'eco-lime': '#d9f99d',
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
@@ -42,7 +42,6 @@
             background-color: #fafafa;
         }
 
-        /* Hero Background with overlay */
         .hero-enzym { 
             background: linear-gradient(to bottom, rgba(2, 44, 34, 0.7), rgba(2, 44, 34, 0.9)), 
                         url('https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); 
@@ -51,13 +50,11 @@
             background-attachment: fixed;
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #10b981; border-radius: 5px; }
         ::-webkit-scrollbar-thumb:hover { background: #059669; }
 
-        /* Animation Classes */
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         
@@ -71,7 +68,6 @@
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
 
-        /* Glassmorphism utility */
         .glass {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(16px);
@@ -308,7 +304,7 @@
                 <div class="reveal delay-200 bg-white rounded-[2rem] overflow-hidden shadow-lg group">
                     <div class="h-56 overflow-hidden relative">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-                        <img src="https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=600&q=80" alt="Air Bersih" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <img src="https://images.pexels.com/photos/12621223/pexels-photo-12621223.jpeg?cs=srgb&dl=pexels-thomasronveaux-12621223.jpg&fm=jpg" alt="Air Bersih" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute bottom-4 left-6 z-20">
                             <span class="bg-white text-gray-900 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">10 Bagian</span>
                         </div>
@@ -351,7 +347,7 @@
         </div>
     </section>
 
-    <section class="py-32 px-6 bg-gray-900 text-white relative overflow-hidden rounded-t-[3rem] md:rounded-t-[5rem]">
+    <section class="py-32 px-6 bg-gray-900 text-white relative overflow-hidden rounded-t-[3rem] md:rounded-t-[5rem] z-10">
         <div class="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-eco-primary/20 via-gray-900 to-gray-900 pointer-events-none"></div>
         
         <div class="max-w-7xl mx-auto relative z-10">
@@ -393,6 +389,74 @@
                     </div>
                     <h4 class="font-extrabold text-xl mb-3">Pengusir Hama</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">Aroma fermentasinya secara alami mengusir serangga, tikus, dan kecoa dari sekitar area rumah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 bg-[#fafafa] relative z-0">
+        <div class="max-w-4xl mx-auto pt-10">
+            <div class="reveal text-center mb-20">
+                <h2 class="text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-4">Tanya Jawab</h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Frequently Asked Questions</h3>
+                <p class="mt-6 text-gray-500 text-lg">Temukan solusi dari kendala yang paling sering dialami saat proses pembuatan eco-enzyme.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="reveal bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
+                    <button class="faq-button w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-extrabold text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Bagaimana jika muncul belatung di dalam wadah fermentasi?</span>
+                        <div class="w-10 h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50/50">
+                        <div class="px-8 pb-8 pt-2 text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
+                            Jangan panik. Belatung biasanya muncul karena wadah kurang rapat sehingga lalat berhasil masuk. Solusinya: tambahkan segenggam gula merah, aduk rata, lalu tutup wadah serapat mungkin. Belatung akan terurai dengan sendirinya dan menjadi protein tambahan yang bagus.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal delay-100 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
+                    <button class="faq-button w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-extrabold text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Kenapa cairan saya berbau seperti got atau alkohol menyengat?</span>
+                        <div class="w-10 h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50/50">
+                        <div class="px-8 pb-8 pt-2 text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
+                            Bau got menandakan ada bahan organik berprotein tinggi (seperti sisa daging/lemak) yang ikut masuk, atau rasio gula kurang. Tambahkan gula merah sesuai takaran awal untuk memperbaiki fermentasi. Jika berbau alkohol, biarkan saja, itu adalah fase normal di bulan pertama.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal delay-200 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
+                    <button class="faq-button w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-extrabold text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Ada lapisan jamur putih di atas cairan, apakah itu gagal?</span>
+                        <div class="w-10 h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50/50">
+                        <div class="px-8 pb-8 pt-2 text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
+                            Justru sebaliknya. Jamur putih (ragi/jamur pitera) menandakan proses fermentasi berjalan sangat baik dan sehat. Berhati-hatilah jika yang muncul adalah jamur berwarna hitam atau hijau; jika itu terjadi, periksa kembali kerapatan tutup wadah.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal delay-300 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
+                    <button class="faq-button w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-extrabold text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Bolehkah saya menggunakan botol kaca untuk proses fermentasi?</span>
+                        <div class="w-10 h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50/50">
+                        <div class="px-8 pb-8 pt-2 text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
+                            Sangat tidak disarankan. Proses fermentasi eco-enzyme menghasilkan gas yang cukup kuat, terutama di bulan pertama. Wadah kaca tidak memiliki ruang muai yang baik dan berisiko meledak atau pecah akibat tekanan gas. Gunakan wadah plastik yang agak lentur.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -457,7 +521,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Hanya play sekali
+                    observer.unobserve(entry.target); 
                 }
             });
         }, observerOptions);
@@ -465,6 +529,25 @@
         document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach(el => {
             observer.observe(el);
         });
+
+        // Fungsi Interaktif untuk Accordion FAQ
+        function toggleFaq(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('.icon-container');
+            const isCurrentlyOpen = answer.style.maxHeight;
+            
+            document.querySelectorAll('.faq-answer').forEach(el => {
+                el.style.maxHeight = null;
+                el.previousElementSibling.querySelector('.icon-container').style.transform = 'rotate(0deg)';
+                el.previousElementSibling.querySelector('.icon-container').classList.remove('bg-eco-primary', 'text-white');
+            });
+
+            if (!isCurrentlyOpen) {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+                icon.classList.add('bg-eco-primary', 'text-white');
+            }
+        }
     </script>
 </body>
 </html>
