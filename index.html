@@ -15,11 +15,11 @@
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
                     },
                     colors: {
-                        'eco-dark': '#022c22',    
+                        'eco-dark': '#022c22',
                         'eco-primary': '#059669',
                         'eco-accent': '#10b981',
                         'eco-light': '#ecfdf5',
-                        'eco-lime': '#d9f99d',    
+                        'eco-lime': '#d9f99d',
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
@@ -38,7 +38,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
         
-        body { 
+        body {
             overflow-x: hidden;
             background-color: #fafafa;
         }
@@ -76,11 +76,11 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .hero-gradient { 
-            background: linear-gradient(to bottom, rgba(2, 44, 34, 0.7), rgba(2, 44, 34, 0.9)), 
-                        url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); 
-            background-size: cover; 
-            background-position: center; 
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(2, 44, 34, 0.7), rgba(2, 44, 34, 0.9)),
+                        url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
             background-attachment: fixed;
         }
     </style>
@@ -101,7 +101,7 @@
             <div class="hidden md:flex items-center space-x-10 text-white text-xs font-bold uppercase tracking-[0.2em]">
                 <a href="index.html" class="text-eco-lime relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-eco-lime">Beranda</a>
                 <a href="ecobrick.html" class="hover:text-eco-lime transition-colors">Ecobrick</a>
-                <a href="ecoenzym.html" class="hover:text-eco-lime transition-colors">Ecoenzym</a>
+                <a href="ecoenzym.html" class="hover:text-eco-lime transition-colors">Ecoenzyme</a>
             </div>
 
             <!-- Mobile Menu Toggle -->
@@ -138,7 +138,7 @@
                     <i class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
                 </a>
                 <a href="ecoenzym.html" class="flex items-center justify-between group text-white/70 hover:text-white transition-colors">
-                    <span class="text-lg font-bold uppercase tracking-widest">Ecoenzym</span>
+                    <span class="text-lg font-bold uppercase tracking-widest">Ecoenzyme</span>
                     <i class="fas fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
                 </a>
             </div>
@@ -581,7 +581,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); 
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
