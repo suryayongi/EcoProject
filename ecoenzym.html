@@ -15,11 +15,11 @@
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
                     },
                     colors: {
-                        'eco-dark': '#022c22',    
+                        'eco-dark': '#022c22',
                         'eco-primary': '#059669',
                         'eco-accent': '#10b981',
                         'eco-light': '#ecfdf5',
-                        'eco-lime': '#d9f99d',    
+                        'eco-lime': '#d9f99d',
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
@@ -38,16 +38,16 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
         
-        body { 
+        body {
             overflow-x: hidden;
             background-color: #fafafa;
         }
 
-        .hero-enzym { 
-            background: linear-gradient(to bottom, rgba(2, 44, 34, 0.7), rgba(2, 44, 34, 0.9)), 
-                        url('https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); 
-            background-size: cover; 
-            background-position: center; 
+        .hero-enzym {
+            background: linear-gradient(to bottom, rgba(2, 44, 34, 0.7), rgba(2, 44, 34, 0.9)),
+                        url('https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
             background-attachment: fixed;
         }
 
@@ -84,10 +84,10 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        input[type="number"]::-webkit-inner-spin-button, 
-        input[type="number"]::-webkit-outer-spin-button { 
-            -webkit-appearance: none; 
-            margin: 0; 
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
         }
     </style>
 </head>
@@ -106,7 +106,7 @@
             <div class="hidden md:flex items-center space-x-10 text-white text-xs font-bold uppercase tracking-[0.2em]">
                 <a href="index.html" class="hover:text-eco-lime transition-colors">Beranda</a>
                 <a href="ecobrick.html" class="hover:text-eco-lime transition-colors">Ecobrick</a>
-                <a href="ecoenzym.html" class="text-eco-lime relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-eco-lime">Ecoenzym</a>
+                <a href="ecoenzym.html" class="text-eco-lime relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-eco-lime">Ecoenzyme</a>
             </div>
 
             <button id="mobileMenuBtn" class="md:hidden text-white text-2xl focus:outline-none p-2">
@@ -117,7 +117,7 @@
         <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-eco-dark/95 backdrop-blur-xl flex-col items-center py-6 space-y-6 border-b border-white/10 shadow-2xl transition-all origin-top">
             <a href="index.html" class="text-white font-bold uppercase tracking-widest text-sm hover:text-eco-lime">Beranda</a>
             <a href="ecobrick.html" class="text-white font-bold uppercase tracking-widest text-sm hover:text-eco-lime">Ecobrick</a>
-            <a href="ecoenzym.html" class="text-eco-lime font-bold uppercase tracking-widest text-sm border-b border-eco-lime pb-1">Ecoenzym</a>
+            <a href="ecoenzym.html" class="text-eco-lime font-bold uppercase tracking-widest text-sm border-b border-eco-lime pb-1">Ecoenzyme</a>
         </div>
     </nav>
 
@@ -775,7 +775,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); 
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
@@ -790,7 +790,7 @@
             const airResult = document.getElementById('airResult');
 
             if (volInput > 0) {
-                const volumeEfektif = volInput * 0.8; 
+                const volumeEfektif = volInput * 0.8;
                 const totalGram = volumeEfektif * 1000;
                 const gula = (totalGram / 14) * 1;
                 const organik = (totalGram / 14) * 3;
