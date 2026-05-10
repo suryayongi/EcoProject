@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bojongsantos Project - EcoEnzyme</title>
-    <link rel="icon" type="image/png" href="img/Logo/contoh1onlyLogo-Photoroom.png">
+    <title>Bojongsantos Project - Ecoenzym</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -96,10 +95,12 @@
     <div class="fixed top-[-5%] left-[-10%] w-72 h-72 md:w-96 md:h-96 bg-eco-accent/20 rounded-full mix-blend-multiply filter blur-[80px] md:blur-[100px] opacity-50 animate-pulse-slow z-[-1] pointer-events-none"></div>
     <div class="fixed bottom-[-5%] right-[-10%] w-72 h-72 md:w-96 md:h-96 bg-blue-400/20 rounded-full mix-blend-multiply filter blur-[80px] md:blur-[100px] opacity-50 animate-pulse-slow delay-75 z-[-1] pointer-events-none"></div>
 
-    <nav class="fixed top-0 w-full z-[100] px-6 py-6 md:px-12 transition-all duration-300" id="navbar">
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12 md:py-6" id="navbar">
         <div class="max-w-7xl mx-auto flex items-center justify-between relative">
             <div class="text-white font-extrabold text-xl md:text-2xl tracking-tighter flex items-center gap-2">
-                <img src="img/Logo/contoh1onlyLogo-Photoroom.png" alt="Logo" class="w-10 h-10 object-contain">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-eco-primary to-eco-lime flex items-center justify-center">
+                    <i class="fas fa-leaf text-eco-dark text-sm"></i>
+                </div>
                 Bojongsantos
             </div>
             
@@ -195,7 +196,7 @@
                 <div class="space-y-4">
                     <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
                         <div class="w-10 h-10 rounded-full bg-eco-lime/20 flex items-center justify-center text-eco-lime shrink-0">
-                            <img src="img/Logo/contoh1onlyLogo-Photoroom.png" alt="Logo" class="w-5 h-5 object-contain">
+                            <i class="fas fa-leaf"></i>
                         </div>
                         <p class="font-semibold text-sm md:text-base">100% Organik & Alami</p>
                     </div>
@@ -705,7 +706,9 @@
 
     <footer class="pt-16 md:pt-20 pb-8 md:pb-10 px-6 bg-[#fafafa] text-center border-t border-gray-100">
         <div class="max-w-7xl mx-auto">
-            <img src="img/Logo/contoh1onlyLogo-Photoroom.png" alt="Logo" class="w-32 h-32 object-contain mx-auto mb-4 md:mb-6">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-tr from-eco-primary to-eco-lime flex items-center justify-center text-eco-dark mx-auto mb-4 md:mb-6">
+                <i class="fas fa-leaf text-lg md:text-xl"></i>
+            </div>
             <h3 class="font-extrabold text-xl md:text-2xl text-gray-900 mb-2">Bojongsantos Project</h3>
             <p class="text-gray-400 text-xs md:text-sm mb-8 md:mb-12">Membangun kesadaran lingkungan, satu langkah kecil setiap harinya.</p>
             
@@ -715,42 +718,7 @@
         </div>
     </footer>
 
-    <!-- Scroll to Top Button (Hidden on Mobile) -->
-    <button id="scrollToTop" class="fixed bottom-8 right-8 z-[100] w-14 h-14 bg-gray-200 text-gray-800 rounded-full border border-white flex items-center justify-center hover:bg-white hover:scale-110 transition-all duration-500 opacity-0 pointer-events-none translate-y-10 shadow-2xl focus:outline-none hidden md:flex">
-        <i class="fas fa-arrow-up text-xl"></i>
-    </button>
-
     <script>
-        // Navbar Scrolled Effect & Scroll to Top Logic
-        const navbar = document.getElementById('navbar');
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-[#022c22]', 'shadow-lg', 'py-4');
-                navbar.classList.remove('py-6');
-            } else {
-                navbar.classList.remove('bg-[#022c22]', 'shadow-lg', 'py-4');
-                navbar.classList.add('py-6');
-            }
-
-            if (scrollToTopBtn) {
-                if (window.scrollY > 300) {
-                    scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
-                    scrollToTopBtn.classList.add('opacity-100', 'translate-y-0');
-                } else {
-                    scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10');
-                    scrollToTopBtn.classList.remove('opacity-100', 'translate-y-0');
-                }
-            }
-        });
-
-        if (scrollToTopBtn) {
-            scrollToTopBtn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        }
-
         // Hamburger Menu Logic untuk Mobile
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -766,6 +734,16 @@
             } else {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
+            }
+        });
+
+        // Navbar Scrolled Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-eco-dark/95', 'backdrop-blur-xl', 'shadow-md');
+            } else {
+                navbar.classList.remove('bg-eco-dark/95', 'backdrop-blur-xl', 'shadow-md');
             }
         });
 
@@ -792,9 +770,11 @@
             if (volInput > 0) {
                 const volumeEfektif = volInput * 0.8; 
                 const totalGram = volumeEfektif * 1000;
+                
                 const gula = (totalGram / 14) * 1;
                 const organik = (totalGram / 14) * 3;
                 const air = (totalGram / 14) * 10;
+
                 gulaResult.textContent = Math.round(gula);
                 organikResult.textContent = Math.round(organik);
                 airResult.textContent = Math.round(air);
