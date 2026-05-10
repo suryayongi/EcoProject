@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bojongsantos Project - EcoEnzyme</title>
+    <title>EcoProject - EcoEnzyme</title>
     <meta name="description" content="Pelajari cara membuat Eco-Enzyme dari sisa dapur organik. Solusi ramah lingkungan untuk kebersihan rumah dan kelestarian ekosistem.">
     
     <!-- Open Graph / Social Media -->
@@ -15,6 +15,7 @@
     <!-- Preconnect to external services -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
 
@@ -102,6 +103,12 @@
             -webkit-appearance: none;
             margin: 0;
         }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        }
     </style>
 </head>
 <body class="text-gray-900 antialiased selection:bg-eco-accent selection:text-white">
@@ -113,7 +120,7 @@
         <div class="max-w-7xl mx-auto flex items-center justify-between relative">
             <div class="text-white font-extrabold text-2xl tracking-tighter flex items-center gap-2">
                 <img src="img/Logo/contoh1onlyLogo-Photoroom.png" alt="Logo" class="w-10 h-10 object-contain">
-                Bojongsantos
+                EcoProject
             </div>
             
             <div class="hidden md:flex items-center space-x-10 text-white text-xs font-bold uppercase tracking-[0.2em]">
@@ -128,6 +135,10 @@
         </div>
 
         <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-eco-dark/95 backdrop-blur-xl flex-col items-center py-6 space-y-6 border-b border-white/10 shadow-2xl transition-all origin-top">
+            <div class="text-white font-black text-xl tracking-tight flex items-center gap-2 mb-4">
+                <img src="img/Logo/contoh1onlyLogo-Photoroom.png" alt="Logo" class="w-8 h-8 object-contain">
+                EcoProject
+            </div>
             <a href="index.html" class="text-white font-bold uppercase tracking-widest text-sm hover:text-eco-lime">Beranda</a>
             <a href="ecobrick.html" class="text-white font-bold uppercase tracking-widest text-sm hover:text-eco-lime">Ecobrick</a>
             <a href="ecoenzym.html" class="text-eco-lime font-bold uppercase tracking-widest text-sm border-b border-eco-lime pb-1">Ecoenzyme</a>
@@ -223,7 +234,7 @@
             <div class="w-full lg:w-1/2 reveal-scale">
                 <div class="relative rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl group aspect-video lg:aspect-auto lg:h-[500px]">
                     <div class="absolute inset-0 bg-eco-dark/20 group-hover:bg-transparent transition-all duration-500 z-10"></div>
-                    <img src="https://plus.unsplash.com/premium_photo-1724100961169-c5e13cdfffd9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Eco Enzyme Process" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <img src="https://plus.unsplash.com/premium_photo-1724100961169-c5e13cdfffd9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" loading="lazy" alt="Eco Enzyme Process" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 </div>
             </div>
         </div>
@@ -643,7 +654,7 @@
                             <i class="fas fa-chevron-down text-xs md:text-base"></i>
                         </div>
                     </button>
-                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50/50">
+                    <div class="faq-answer">
                         <div class="px-5 md:px-8 pb-5 md:pb-8 pt-2 text-gray-600 text-xs md:text-base leading-relaxed border-t border-gray-100 mt-2">
                             Jangan panik. Belatung biasanya muncul karena wadah kurang rapat. Tambahkan segenggam gula merah, aduk rata, lalu tutup wadah serapat mungkin. Belatung akan terurai dengan sendirinya menjadi protein tambahan.
                         </div>
@@ -657,7 +668,7 @@
                             <i class="fas fa-chevron-down text-xs md:text-base"></i>
                         </div>
                     </button>
-                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50/50">
+                    <div class="faq-answer">
                         <div class="px-5 md:px-8 pb-5 md:pb-8 pt-2 text-gray-600 text-xs md:text-base leading-relaxed border-t border-gray-100 mt-2">
                             Bau got menandakan ada bahan organik berprotein tinggi (daging/lemak) yang ikut masuk, atau rasio gula kurang. Tambahkan gula merah sesuai takaran awal untuk memperbaiki pH fermentasi.
                         </div>
@@ -671,7 +682,7 @@
                             <i class="fas fa-chevron-down text-xs md:text-base"></i>
                         </div>
                     </button>
-                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50/50">
+                    <div class="faq-answer">
                         <div class="px-5 md:px-8 pb-5 md:pb-8 pt-2 text-gray-600 text-xs md:text-base leading-relaxed border-t border-gray-100 mt-2">
                             Sebaliknya, jamur putih (pitera) menandakan proses fermentasi berjalan sangat baik. Berhati-hatilah jika yang muncul adalah jamur hitam/hijau; jika terjadi, periksa kerapatan wadah.
                         </div>
@@ -685,7 +696,7 @@
                             <i class="fas fa-chevron-down text-xs md:text-base"></i>
                         </div>
                     </button>
-                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50/50">
+                    <div class="faq-answer">
                         <div class="px-5 md:px-8 pb-5 md:pb-8 pt-2 text-gray-600 text-xs md:text-base leading-relaxed border-t border-gray-100 mt-2">
                             Sangat tidak disarankan. Fermentasi menghasilkan gas kuat di bulan pertama. Wadah kaca tidak bisa memuai dan berisiko meledak akibat tekanan gas. Gunakan selalu wadah plastik lentur.
                         </div>
@@ -706,58 +717,80 @@
                 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
                     <button class="w-full sm:w-auto bg-eco-lime text-eco-dark px-6 md:px-10 py-4 md:py-5 rounded-full text-base md:text-lg font-extrabold hover:bg-white transition-all shadow-[0_10px_20px_rgba(217,249,157,0.3)] hover:scale-105">
-                        Daftar Sebagai Relawan
-                    </button>
-                    <button class="w-full sm:w-auto bg-white/10 border border-white/20 backdrop-blur-md text-white px-6 md:px-10 py-4 md:py-5 rounded-full text-base md:text-lg font-extrabold hover:bg-white/20 transition-all">
-                        Hubungi Tim Bojongsantos
+                        Isi Form Kontribusi
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="pt-16 md:pt-20 pb-8 md:pb-10 px-6 bg-[#fafafa] text-center border-t border-gray-100">
+    <footer class="pt-20 pb-10 px-6 bg-[#fafafa] text-center border-t border-gray-100">
         <div class="max-w-7xl mx-auto">
-            <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-tr from-eco-primary to-eco-lime flex items-center justify-center text-eco-dark mx-auto mb-4 md:mb-6">
-                <i class="fas fa-leaf text-lg md:text-xl"></i>
-            </div>
-            <h3 class="font-extrabold text-xl md:text-2xl text-gray-900 mb-2">Bojongsantos Project</h3>
-            <p class="text-gray-400 text-xs md:text-sm mb-8 md:mb-12">Membangun kesadaran lingkungan, satu langkah kecil setiap harinya.</p>
-            
-            <p class="text-gray-400 text-[8px] md:text-[10px] font-bold uppercase tracking-widest">
-                © 2026 Bojongsantos Project, All Rights Reserved.<br>S1 Sistem Informasi, Telkom University
+            <img src="img/Logo/contoh1-Photoroom.png" loading="lazy" alt="Logo" class="w-40 h-40 object-contain mx-auto mb-6">
+            <!-- <h3 class="font-extrabold text-2xl text-gray-900 mb-2">EcoProject</h3> -->
+            <p class="text-gray-400 text-sm mb-12">Membangun kesadaran lingkungan, satu langkah kecil setiap harinya.</p>
+
+            <p class="text-gray-400 text-[10px] font-bold uppercase tracking-widest text-center">
+                © 2026 EcoProject, All Rights Reserved.<br>S1 Sistem Informasi, Telkom University
             </p>
         </div>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="fixed bottom-28 right-8 z-[100] w-14 h-14 bg-gray-200 text-gray-800 rounded-full border border-white flex items-center justify-center hover:bg-white hover:scale-110 transition-all duration-500 opacity-0 pointer-events-none translate-y-10 shadow-2xl focus:outline-none hidden md:flex">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </button>
+
     <script>
+        // Navbar Scrolled Effect & Scroll to Top Logic
+        const navbar = document.getElementById('navbar');
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-[#022c22]', 'shadow-lg', 'py-4');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('bg-[#022c22]', 'shadow-lg', 'py-4');
+                navbar.classList.add('py-6');
+            }
+
+            if (scrollToTopBtn) {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
+                    scrollToTopBtn.classList.add('opacity-100', 'translate-y-0');
+                } else {
+                    scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10');
+                    scrollToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+                }
+            }
+        });
+
+        if (scrollToTopBtn) {
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
         // Hamburger Menu Logic untuk Mobile
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
-            
-            const icon = mobileMenuBtn.querySelector('i');
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            } else {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            }
-        });
-
-        // Navbar Scrolled Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-eco-dark/95', 'backdrop-blur-xl', 'shadow-md');
-            } else {
-                navbar.classList.remove('bg-eco-dark/95', 'backdrop-blur-xl', 'shadow-md');
-            }
-        });
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+                
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            });
+        }
 
         // Intersection Observer for Reveal Animations
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
@@ -782,11 +815,9 @@
             if (volInput > 0) {
                 const volumeEfektif = volInput * 0.8;
                 const totalGram = volumeEfektif * 1000;
-                
                 const gula = (totalGram / 14) * 1;
                 const organik = (totalGram / 14) * 3;
                 const air = (totalGram / 14) * 10;
-
                 gulaResult.textContent = Math.round(gula);
                 organikResult.textContent = Math.round(organik);
                 airResult.textContent = Math.round(air);
@@ -801,20 +832,27 @@
         function toggleFaq(button) {
             const answer = button.nextElementSibling;
             const icon = button.querySelector('.icon-container');
-            const isCurrentlyOpen = answer.style.maxHeight;
+            const isCurrentlyOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
             
             document.querySelectorAll('.faq-answer').forEach(el => {
                 el.style.maxHeight = null;
-                el.previousElementSibling.querySelector('.icon-container').style.transform = 'rotate(0deg)';
-                el.previousElementSibling.querySelector('.icon-container').classList.remove('bg-eco-primary', 'text-white');
+                const otherIcon = el.previousElementSibling.querySelector('.icon-container');
+                if (otherIcon) {
+                    otherIcon.style.transform = 'rotate(0deg)';
+                    otherIcon.classList.remove('bg-eco-primary', 'text-white');
+                    otherIcon.classList.add('bg-eco-light', 'text-eco-primary');
+                }
             });
 
             if (!isCurrentlyOpen) {
                 answer.style.maxHeight = answer.scrollHeight + "px";
                 icon.style.transform = 'rotate(180deg)';
+                icon.classList.remove('bg-eco-light', 'text-eco-primary');
                 icon.classList.add('bg-eco-primary', 'text-white');
             }
         }
     </script>
+    <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2026/05/09/16/20260509162621-K7TOULO0.js" defer></script>
 </body>
 </html>

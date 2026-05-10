@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bojongsantos Project - Membangun Kesadaran Lingkungan</title>
-    <meta name="description" content="Bojongsantos Project - Solusi pengelolaan sampah organik dan anorganik melalui Eco-Enzyme dan Eco-Brick di Telkom University.">
+    <title>EcoProject - Membangun Kesadaran Lingkungan</title>
+    <meta name="description" content="EcoProject - Solusi pengelolaan sampah organik dan anorganik melalui Eco-Enzyme dan Eco-Brick.">
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Bojongsantos Project - Solusi Cerdas Kelola Sampah">
+    <meta property="og:title" content="EcoProject - Solusi Cerdas Kelola Sampah">
     <meta property="og:description" content="Ubah limbah menjadi manfaat. Pelajari cara membuat Eco-Enzyme dan Eco-Brick untuk masa depan bumi yang lebih hijau.">
     <meta property="og:image" content="img/Logo/contoh1onlyLogo.png">
 
     <!-- Preconnect to external services -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
 
@@ -50,7 +51,6 @@
         }
     </script>
     <style>
-        
         body {
             overflow-x: hidden;
             background-color: #fafafa;
@@ -96,6 +96,12 @@
             background-position: center;
             background-attachment: fixed;
         }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        }
     </style>
 </head>
 <body class="text-gray-900 antialiased selection:bg-eco-accent selection:text-white">
@@ -107,34 +113,29 @@
         <div class="max-w-7xl mx-auto flex items-center justify-between relative">
             <div class="text-white font-extrabold text-2xl tracking-tighter flex items-center gap-2">
                 <img src="img/Logo/contoh1onlyLogo-Photoroom.png" alt="Logo" class="w-10 h-10 object-contain">
-                Bojongsantos
+                EcoProject
             </div>
             
-            <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-10 text-white text-xs font-bold uppercase tracking-[0.2em]">
                 <a href="index.html" class="text-eco-lime relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-eco-lime">Beranda</a>
                 <a href="ecobrick.html" class="hover:text-eco-lime transition-colors">Ecobrick</a>
                 <a href="ecoenzym.html" class="hover:text-eco-lime transition-colors">Ecoenzyme</a>
             </div>
 
-            <!-- Mobile Menu Toggle -->
             <button id="menuToggle" class="md:hidden text-white text-2xl focus:outline-none p-2">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile Sidebar Navigation (Outside Nav for Interactivity) -->
+    <!-- Mobile Sidebar Navigation -->
     <div class="fixed inset-0 z-[200] md:hidden transition-all duration-500 opacity-0 pointer-events-none" id="mobileMenuContainer">
-        <!-- Backdrop -->
         <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="menuBackdrop"></div>
-        
-        <!-- Sidebar Content -->
         <div class="absolute right-0 top-0 h-full w-[80%] max-w-xs bg-[#022c22] shadow-2xl transition-transform duration-500 translate-x-full flex flex-col p-8" id="menuDrawer">
             <div class="flex justify-between items-center mb-12">
                 <div class="text-white font-black text-xl tracking-tight flex items-center gap-2">
                     <img src="img/Logo/contoh1onlyLogo-Photoroom.png" alt="Logo" class="w-8 h-8 object-contain">
-                    Bojongsantos
+                    EcoProject
                 </div>
                 <button class="text-white/50 hover:text-white transition-colors" id="closeMenu">
                     <i class="fas fa-times text-2xl"></i>
@@ -166,7 +167,6 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
     <header class="hero-gradient min-h-screen flex items-center justify-center text-center px-6 relative overflow-hidden">
         <div class="max-w-5xl pt-20 relative z-10">
             <div class="reveal active inline-flex items-center gap-2 glass text-white text-xs font-bold px-6 py-3 rounded-full mb-8 uppercase tracking-widest shadow-2xl">
@@ -178,14 +178,13 @@
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-eco-lime to-eco-accent">Solusi Bersih</span>
             </h1>
             <p class="reveal active delay-200 text-white/70 text-lg md:text-2xl font-medium mb-12 max-w-3xl mx-auto leading-relaxed">
-                Kolaborasi masyarakat dan mahasiswa dalam mengelola sampah organik dan plastik melalui edukasi yang mudah dipahami.
+                Kolaborasi masyarakat dalam mengelola sampah organik dan plastik melalui edukasi yang mudah dipahami.
             </p>
             <div class="reveal active delay-300 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="ecoenzym.html" class="w-full sm:w-auto bg-eco-lime text-eco-dark px-10 py-5 rounded-full text-lg font-extrabold hover:bg-white transition-all shadow-[0_10px_20px_rgba(217,249,157,0.3)] hover:scale-105 text-center">Belajar Eco-Enzyme</a>
                 <a href="ecobrick.html" class="w-full sm:w-auto bg-white/10 border border-white/20 backdrop-blur-md text-white px-10 py-5 rounded-full text-lg font-extrabold hover:bg-white/20 transition-all text-center">Belajar Eco-Brick</a>
             </div>
 
-            <!-- Tablet/Mobile Badge (Centered below buttons) -->
             <div class="reveal active delay-300 lg:hidden w-full max-w-sm mx-auto glass p-4 sm:p-5 rounded-full flex items-center justify-center space-x-4 border border-white/10 mt-6 shadow-xl">
                 <div class="w-8 h-8 sm:w-10 sm:h-10 bg-eco-lime rounded-full flex items-center justify-center text-eco-dark shrink-0">
                     <i class="fas fa-users text-sm sm:text-lg"></i>
@@ -197,7 +196,6 @@
             </div>
         </div>
 
-        <!-- Desktop Only Floating Badge -->
         <div class="reveal active delay-300 hidden lg:flex absolute bottom-12 right-24 glass p-6 rounded-3xl items-center space-x-6 shadow-2xl border border-white/10 z-20">
             <div class="w-14 h-14 bg-eco-lime rounded-2xl flex items-center justify-center text-eco-dark">
                 <i class="fas fa-users text-2xl"></i>
@@ -209,47 +207,45 @@
         </div>
     </header>
 
-    <!-- Masalah Section -->
-    <section class="py-32 px-6 max-w-7xl mx-auto relative">
+    <section id="masalah" class="py-32 px-6 max-w-7xl mx-auto relative">
         <div class="reveal text-center max-w-3xl mx-auto mb-20">
-            <h2 class="text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-4">Latar Belakang</h2>
+            <h2 class="text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-4">Tantangan Kita</h2>
             <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Masalah Lingkungan</h3>
-            <p class="mt-6 text-gray-500 text-lg font-medium">Berbagai tantangan lingkungan yang dihadapi masyarakat desa berakar dari pengelolaan sampah yang belum optimal.</p>
+            <p class="mt-6 text-gray-500 text-lg font-medium">Berbagai tantangan lingkungan yang dihadapi masyarakat berakar dari pengelolaan sampah yang belum optimal.</p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             <div class="reveal bg-white p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(16,185,129,0.1)] hover:-translate-y-2 transition-all duration-500 group border border-gray-100">
-                <div class="w-14 h-14 bg-eco-light rounded-2xl mb-8 flex items-center justify-center text-eco-primary group-hover:scale-110 group-hover:bg-eco-primary group-hover:text-white transition-all duration-500">
-                    <i class="fas fa-recycle text-xl"></i>
+                <div class="w-14 h-14 bg-eco-light rounded-2xl mb-8 mx-auto flex items-center justify-center text-eco-primary group-hover:scale-110 group-hover:bg-eco-primary group-hover:text-white transition-all duration-500">
+                    <i class="fas fa-trash-can text-xl"></i>
                 </div>
-                <h4 class="font-extrabold text-xl mb-3 text-gray-900">Sampah Plastik</h4>
-                <p class="text-gray-500 text-sm leading-relaxed">Sampah plastik sulit terurai dan terus menumpuk mencemari lingkungan sekitar.</p>
+                <h4 class="font-extrabold text-xl mb-3 text-gray-900">Sampah Menumpuk</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">Limbah rumah tangga terus bertambah setiap hari tanpa pengelolaan yang tepat.</p>
             </div>
             <div class="reveal delay-100 bg-white p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(16,185,129,0.1)] hover:-translate-y-2 transition-all duration-500 group border border-gray-100">
-                <div class="w-14 h-14 bg-eco-light rounded-2xl mb-8 flex items-center justify-center text-eco-primary group-hover:scale-110 group-hover:bg-eco-primary group-hover:text-white transition-all duration-500">
+                <div class="w-14 h-14 bg-eco-light rounded-2xl mb-8 mx-auto flex items-center justify-center text-eco-primary group-hover:scale-110 group-hover:bg-eco-primary group-hover:text-white transition-all duration-500">
                     <i class="fas fa-water text-xl"></i>
                 </div>
-                <h4 class="font-extrabold text-xl mb-3 text-gray-900">Sungai Tercemar</h4>
-                <p class="text-gray-500 text-sm leading-relaxed">Air sungai menjadi kotor akibat pembuangan limbah dan sampah yang tidak terkontrol.</p>
+                <h4 class="font-extrabold text-xl mb-3 text-gray-900">Pencemaran Air</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">Resapan sampah organik yang membusuk mencemari kualitas air tanah kita.</p>
             </div>
             <div class="reveal delay-200 bg-white p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(16,185,129,0.1)] hover:-translate-y-2 transition-all duration-500 group border border-gray-100">
-                <div class="w-14 h-14 bg-eco-light rounded-2xl mb-8 flex items-center justify-center text-eco-primary group-hover:scale-110 group-hover:bg-eco-primary group-hover:text-white transition-all duration-500">
-                    <i class="fas fa-cloud-showers-heavy text-xl"></i>
+                <div class="w-14 h-14 bg-eco-light rounded-2xl mb-8 mx-auto flex items-center justify-center text-eco-primary group-hover:scale-110 group-hover:bg-eco-primary group-hover:text-white transition-all duration-500">
+                    <i class="fas fa-recycle text-xl"></i>
                 </div>
-                <h4 class="font-extrabold text-xl mb-3 text-gray-900">Risiko Banjir</h4>
-                <p class="text-gray-500 text-sm leading-relaxed">Drainase yang tersumbat sampah plastik memicu genangan dan banjir saat hujan.</p>
+                <h4 class="font-extrabold text-xl mb-3 text-gray-900">Sulit Terurai</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">Plastik membutuhkan waktu ratusan tahun untuk bisa terurai secara alami.</p>
             </div>
             <div class="reveal delay-300 bg-white p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(16,185,129,0.1)] hover:-translate-y-2 transition-all duration-500 group border border-gray-100">
-                <div class="w-14 h-14 bg-eco-light rounded-2xl mb-8 flex items-center justify-center text-eco-primary group-hover:scale-110 group-hover:bg-eco-primary group-hover:text-white transition-all duration-500">
-                    <i class="fas fa-graduation-cap text-xl"></i>
+                <div class="w-14 h-14 bg-eco-light rounded-2xl mb-8 mx-auto flex items-center justify-center text-eco-primary group-hover:scale-110 group-hover:bg-eco-primary group-hover:text-white transition-all duration-500">
+                    <i class="fas fa-cloud-sun text-xl"></i>
                 </div>
-                <h4 class="font-extrabold text-xl mb-3 text-gray-900">Kurang Edukasi</h4>
-                <p class="text-gray-500 text-sm leading-relaxed">Minimnya pemahaman warga tentang cara mengelola sampah secara berkelanjutan.</p>
+                <h4 class="font-extrabold text-xl mb-3 text-gray-900">Pemanasan Global</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">Gas metana dari sampah organik di TPA memicu perubahan iklim yang ekstrem.</p>
             </div>
         </div>
     </section>
 
-    <!-- Tentang Program Section -->
     <section class="py-32 px-6 bg-eco-light/50 relative overflow-hidden">
         <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-eco-accent/5 to-transparent"></div>
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 relative z-10">
@@ -265,16 +261,16 @@
                 <p class="text-gray-500 text-lg leading-relaxed mb-10 font-medium">
                     Program kolaborasi mahasiswa dan masyarakat untuk membantu warga memahami cara mengelola sampah dengan solusi sederhana dan berkelanjutan. Kami percaya bahwa perubahan dimulai dari kesadaran dan aksi bersama.
                 </p>
-                <div class="grid grid-cols-3 gap-6">
-                    <div class="bg-white p-6 rounded-3xl text-center shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="grid grid-cols-3 gap-6 text-center">
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                         <p class="text-3xl font-black text-gray-900">20+</p>
                         <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Warga</p>
                     </div>
-                    <div class="bg-white p-6 rounded-3xl text-center shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                         <p class="text-3xl font-black text-gray-900">5+</p>
                         <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Kegiatan</p>
                     </div>
-                    <div class="bg-white p-6 rounded-3xl text-center shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                         <p class="text-3xl font-black text-gray-900">20+</p>
                         <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Mahasiswa</p>
                     </div>
@@ -283,7 +279,6 @@
         </div>
     </section>
 
-    <!-- Pilih Solusi Section -->
     <section class="py-32 px-6 max-w-7xl mx-auto">
         <div class="reveal text-center max-w-3xl mx-auto mb-20">
             <h2 class="text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-4">Opsi Edukasi</h2>
@@ -291,7 +286,7 @@
             <p class="mt-6 text-gray-500 text-lg font-medium">Dua metode sederhana yang dapat diterapkan untuk mengatasi sampah di lingkungan.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <!-- Eco-Enzyme Card -->
             <div class="reveal bg-white rounded-[3rem] overflow-hidden text-left flex flex-col shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 group">
                 <div class="h-80 relative overflow-hidden">
@@ -324,7 +319,7 @@
                             <span>Mengurangi pencemaran air</span>
                         </li>
                     </ul>
-                    <a href="ecoenzym.html" class="inline-flex items-center justify-center w-full bg-eco-dark text-white py-5 rounded-2xl text-lg font-extrabold hover:bg-eco-primary transition-all shadow-lg">Pelajari Eco-Enzyme</a>
+                    <a href="ecoenzym.html" class="inline-flex items-center justify-center w-full bg-eco-dark text-white py-5 rounded-2xl text-lg font-extrabold hover:bg-eco-primary transition-all shadow-lg text-center">Pelajari Eco-Enzyme</a>
                 </div>
             </div>
             
@@ -360,19 +355,18 @@
                             <span>Bisa dijadikan furnitur</span>
                         </li>
                     </ul>
-                    <a href="ecobrick.html" class="inline-flex items-center justify-center w-full bg-gray-900 text-white py-5 rounded-2xl text-lg font-extrabold hover:bg-blue-600 transition-all shadow-lg">Pelajari Eco-Brick</a>
+                    <a href="ecobrick.html" class="inline-flex items-center justify-center w-full bg-gray-900 text-white py-5 rounded-2xl text-lg font-extrabold hover:bg-blue-600 transition-all shadow-lg text-center">Pelajari Eco-Brick</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Dampak Section -->
     <section class="py-32 px-6 bg-eco-dark text-white relative overflow-hidden">
         <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-eco-primary/20 to-transparent"></div>
         <div class="absolute -bottom-40 -left-40 w-96 h-96 border border-white/5 rounded-full"></div>
 
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="reveal text-center max-w-3xl mx-auto mb-20">
+        <div class="max-w-7xl mx-auto relative z-10 text-center">
+            <div class="reveal max-w-3xl mx-auto mb-20">
                 <h2 class="text-xs font-black text-eco-lime uppercase tracking-[0.3em] mb-4">Pencapaian</h2>
                 <h3 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Dampak Program</h3>
                 <p class="text-white/60 font-medium text-lg">Hasil kolaborasi nyata bersama masyarakat dalam menjaga kelestarian lingkungan.</p>
@@ -415,7 +409,6 @@
         </div>
     </section>
 
-    <!-- Galeri Section -->
     <section class="py-32 px-6 max-w-7xl mx-auto">
         <div class="reveal text-center max-w-3xl mx-auto mb-20">
             <h2 class="text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-4">Dokumentasi</h2>
@@ -444,67 +437,67 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-32 px-6 bg-[#fafafa] relative z-0">
+    <section class="py-32 px-4 md:px-6 bg-[#fafafa] relative z-0 border-t border-gray-100">
         <div class="max-w-4xl mx-auto">
-            <div class="reveal text-center mb-20">
-                <h2 class="text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-4">Tanya Jawab</h2>
-                <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">FAQ Bojongsantos</h3>
-                <p class="mt-6 text-gray-500 text-lg">Segala hal yang perlu Anda ketahui mengenai inisiatif Bojongsantos Project.</p>
+            <div class="reveal text-center mb-16 md:mb-20">
+                <h2 class="text-[10px] md:text-xs font-black text-eco-accent uppercase tracking-[0.3em] mb-3 md:mb-4">Tanya Jawab</h2>
+                <h3 class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight">FAQ EcoProject</h3>
+                <p class="mt-4 md:mt-6 text-gray-500 text-sm md:text-lg">Segala hal yang perlu Anda ketahui mengenai inisiatif EcoProject.</p>
             </div>
 
-            <div class="space-y-4">
-                <div class="reveal bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
-                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
-                        <span class="font-extrabold text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Apa tujuan utama dari Bojongsantos Project?</span>
-                        <div class="w-10 h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
-                            <i class="fas fa-chevron-down"></i>
+            <div class="space-y-3 md:space-y-4">
+                <div class="reveal bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
+                    <button class="w-full px-5 md:px-8 py-4 md:py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-extrabold text-sm md:text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Apa tujuan utama dari EcoProject?</span>
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
+                            <i class="fas fa-chevron-down text-xs md:text-base"></i>
                         </div>
                     </button>
                     <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50/50">
-                        <div class="px-8 pb-8 pt-2 text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
-                            Bojongsantos Project bertujuan untuk membangun kesadaran lingkungan masyarakat melalui edukasi pengelolaan sampah organik (Eco-Enzyme) dan anorganik (Eco-Brick) secara mandiri dan berkelanjutan.
+                        <div class="px-5 md:px-8 pb-5 md:pb-8 pt-2 text-gray-600 text-xs md:text-base leading-relaxed border-t border-gray-100 mt-2">
+                            EcoProject bertujuan untuk membangun kesadaran lingkungan masyarakat melalui edukasi pengelolaan sampah organik (Eco-Enzyme) dan anorganik (Eco-Brick) secara mandiri dan berkelanjutan.
                         </div>
                     </div>
                 </div>
 
-                <div class="reveal delay-100 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
-                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
-                        <span class="font-extrabold text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Bagaimana cara saya untuk ikut berkontribusi?</span>
-                        <div class="w-10 h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
-                            <i class="fas fa-chevron-down"></i>
+                <div class="reveal delay-100 bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
+                    <button class="w-full px-5 md:px-8 py-4 md:py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-extrabold text-sm md:text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Bagaimana cara saya untuk ikut berkontribusi?</span>
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
+                            <i class="fas fa-chevron-down text-xs md:text-base"></i>
                         </div>
                     </button>
                     <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50/50">
-                        <div class="px-8 pb-8 pt-2 text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
+                        <div class="px-5 md:px-8 pb-5 md:pb-8 pt-2 text-gray-600 text-xs md:text-base leading-relaxed border-t border-gray-100 mt-2">
                             Anda dapat berkontribusi dengan mulai mengelola sampah di rumah sendiri menggunakan panduan yang kami sediakan, atau mengisi form kontribusi untuk bergabung dalam kegiatan edukasi komunitas kami.
                         </div>
                     </div>
                 </div>
 
-                <div class="reveal delay-200 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
-                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
-                        <span class="font-extrabold text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Apakah ada biaya untuk mengikuti pelatihan kami?</span>
-                        <div class="w-10 h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
-                            <i class="fas fa-chevron-down"></i>
+                <div class="reveal delay-200 bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
+                    <button class="w-full px-5 md:px-8 py-4 md:py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-extrabold text-sm md:text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Apakah ada biaya untuk mengikuti pelatihan kami?</span>
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
+                            <i class="fas fa-chevron-down text-xs md:text-base"></i>
                         </div>
                     </button>
                     <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50/50">
-                        <div class="px-8 pb-8 pt-2 text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
+                        <div class="px-5 md:px-8 pb-5 md:pb-8 pt-2 text-gray-600 text-xs md:text-base leading-relaxed border-t border-gray-100 mt-2">
                             Tidak ada biaya sama sekali. Seluruh program edukasi dan materi panduan kami berikan secara gratis sebagai bagian dari pengabdian mahasiswa Telkom University kepada masyarakat.
                         </div>
                     </div>
                 </div>
 
-                <div class="reveal delay-300 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
-                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
-                        <span class="font-extrabold text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Siapa saja yang bisa bergabung dalam program ini?</span>
-                        <div class="w-10 h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
-                            <i class="fas fa-chevron-down"></i>
+                <div class="reveal delay-300 bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-100 overflow-hidden group transition-all hover:shadow-md">
+                    <button class="w-full px-5 md:px-8 py-4 md:py-6 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="font-extrabold text-sm md:text-lg text-gray-900 group-hover:text-eco-primary transition-colors pr-4">Siapa saja yang bisa bergabung dalam program ini?</span>
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-eco-light text-eco-primary flex items-center justify-center shrink-0 transition-transform duration-300 icon-container">
+                            <i class="fas fa-chevron-down text-xs md:text-base"></i>
                         </div>
                     </button>
                     <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-gray-50/50">
-                        <div class="px-8 pb-8 pt-2 text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
-                            Siapa saja! Mulai dari warga Bojongsantos, mahasiswa, hingga masyarakat umum yang peduli terhadap lingkungan. Kami percaya setiap tindakan kecil sangat berharga bagi bumi.
+                        <div class="px-5 md:px-8 pb-5 md:pb-8 pt-2 text-gray-600 text-xs md:text-base leading-relaxed border-t border-gray-100 mt-2">
+                            Siapa saja! Mulai dari pelajar, mahasiswa, hingga masyarakat umum yang peduli terhadap lingkungan. Kami percaya setiap tindakan kecil sangat berharga bagi bumi.
                         </div>
                     </div>
                 </div>
@@ -523,10 +516,10 @@
                 <p class="text-white/80 text-lg md:text-xl font-medium mb-12 max-w-2xl mx-auto">Bergabunglah dengan gerakan masyarakat untuk menciptakan lingkungan yang lebih bersih dan sehat.</p>
                 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <button class="w-full sm:w-auto bg-eco-lime text-eco-dark px-10 py-5 rounded-full text-lg font-extrabold hover:bg-white transition-all shadow-[0_10px_20px_rgba(217,249,157,0.3)] hover:scale-105">
+                    <button class="w-full sm:w-auto bg-eco-lime text-eco-dark px-10 py-5 rounded-full text-lg font-extrabold hover:bg-white transition-all shadow-[0_10px_20px_rgba(217,249,157,0.3)] hover:scale-105 text-center">
                         Isi Form Kontribusi
                     </button>
-                    <button class="w-full sm:w-auto bg-white/10 border border-white/20 backdrop-blur-md text-white px-10 py-5 rounded-full text-lg font-extrabold hover:bg-white/20 transition-all">
+                    <button class="w-full sm:w-auto bg-white/10 border border-white/20 backdrop-blur-md text-white px-10 py-5 rounded-full text-lg font-extrabold hover:bg-white/20 transition-all text-center">
                         Hubungi Tim Kami
                     </button>
                 </div>
@@ -536,28 +529,26 @@
 
     <footer class="pt-20 pb-10 px-6 bg-[#fafafa] text-center border-t border-gray-100">
         <div class="max-w-7xl mx-auto">
-            <img src="img/Logo/contoh1onlyLogo-Photoroom.png" alt="Logo" class="w-32 h-32 object-contain mx-auto mb-6">
-            <h3 class="font-extrabold text-2xl text-gray-900 mb-2">Bojongsantos Project</h3>
+            <img src="img/Logo/contoh1-Photoroom.png" loading="lazy" alt="Logo" class="w-40 h-40 object-contain mx-auto mb-6">
+            <!-- <h3 class="font-extrabold text-2xl text-gray-900 mb-2">EcoProject</h3> -->
             <p class="text-gray-400 text-sm mb-12">Membangun kesadaran lingkungan, satu langkah kecil setiap harinya.</p>
-            
-            <p class="text-gray-400 text-[10px] font-bold uppercase tracking-widest">
-                © 2026 Bojongsantos Project, All Rights Reserved.<br>S1 Sistem Informasi, Telkom University
+
+            <p class="text-gray-400 text-[10px] font-bold uppercase tracking-widest text-center">
+                © 2026 EcoProject, All Rights Reserved.<br>S1 Sistem Informasi, Telkom University
             </p>
         </div>
     </footer>
 
-    <!-- Scroll to Top Button (Hidden on Mobile) -->
+    <!-- Scroll to Top Button -->
     <button id="scrollToTop" class="fixed bottom-8 right-8 z-[100] w-14 h-14 bg-gray-200 text-gray-800 rounded-full border border-white flex items-center justify-center hover:bg-white hover:scale-110 transition-all duration-500 opacity-0 pointer-events-none translate-y-10 shadow-2xl focus:outline-none hidden md:flex">
         <i class="fas fa-arrow-up text-xl"></i>
     </button>
 
     <script>
-        // Navbar Scrolled Effect & Scroll to Top Logic
         const navbar = document.getElementById('navbar');
         const scrollToTopBtn = document.getElementById('scrollToTop');
 
         window.addEventListener('scroll', () => {
-            // Navbar effect
             if (window.scrollY > 50) {
                 navbar.classList.add('bg-[#022c22]', 'shadow-lg', 'py-4');
                 navbar.classList.remove('py-6');
@@ -566,7 +557,6 @@
                 navbar.classList.add('py-6');
             }
 
-            // Scroll to Top button visibility (Desktop only)
             if (scrollToTopBtn) {
                 if (window.scrollY > 300) {
                     scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
@@ -578,17 +568,12 @@
             }
         });
 
-        // Smooth Scroll to Top
         if (scrollToTopBtn) {
             scrollToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
 
-        // Intersection Observer for Reveal Animations
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -601,7 +586,6 @@
 
         document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
 
-        // FAQ Accordion Logic
         function toggleFaq(button) {
             const answer = button.nextElementSibling;
             const icon = button.querySelector('.icon-container');
@@ -609,8 +593,11 @@
             
             document.querySelectorAll('.faq-answer').forEach(el => {
                 el.style.maxHeight = null;
-                el.previousElementSibling.querySelector('.icon-container').style.transform = 'rotate(0deg)';
-                el.previousElementSibling.querySelector('.icon-container').classList.remove('bg-eco-primary', 'text-white');
+                const otherIcon = el.previousElementSibling.querySelector('.icon-container');
+                if (otherIcon) {
+                    otherIcon.style.transform = 'rotate(0deg)';
+                    otherIcon.classList.remove('bg-eco-primary', 'text-white');
+                }
             });
 
             if (!isCurrentlyOpen) {
@@ -620,7 +607,6 @@
             }
         }
 
-        // Mobile Menu Logic
         const menuToggle = document.getElementById('menuToggle');
         const closeMenu = document.getElementById('closeMenu');
         const menuBackdrop = document.getElementById('menuBackdrop');
@@ -653,16 +639,6 @@
         if (closeMenu) closeMenu.addEventListener('click', closeMenuFunc);
         if (menuBackdrop) menuBackdrop.addEventListener('click', closeMenuFunc);
 
-        // Close menu on link click
-        document.querySelectorAll('#menuDrawer a').forEach(link => {
-            link.addEventListener('click', closeMenuFunc);
-        });
-    </script>
-</body>
-</html>
-drop.addEventListener('click', closeMenuFunc);
-
-        // Close menu on link click
         document.querySelectorAll('#menuDrawer a').forEach(link => {
             link.addEventListener('click', closeMenuFunc);
         });
